@@ -1,5 +1,12 @@
 @import '../../../style/vars';
 
 .app {
-  color: $primary-color;
+  min-height: 100vh;
+  background-color: rgb(172, 147, 147);
+}
+
+.content {
+  width: 80%;
+  border: 1px solid red;
+  margin: 0 auto;
 }
