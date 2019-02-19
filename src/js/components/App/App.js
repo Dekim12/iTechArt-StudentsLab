@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, HashRouter } from 'react-router-dom';
-import { HomePage, FavoritesPage } from '../index';
-import { Header } from '../../components';
+import { HomePage, FavoritesPage, Header } from '../index';
 import './App.scss';
 
 class App extends Component {

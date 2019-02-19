@@ -32,6 +32,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "babel-loader": "^8.0.5",
     "editorconfig": "^0.15.2",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",
