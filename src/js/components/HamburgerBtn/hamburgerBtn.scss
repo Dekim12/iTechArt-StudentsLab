@@ -1,0 +1,61 @@
+@import '../../../style/vars';
+
+.hamburger-toggle {
+  position: relative;
+  width: 50px;
+  height: 45px;  
+  cursor: pointer;
+  z-index: 100;
+
+  &:hover {    
+    span {
+      background: $hamburger-color_h;
+    }
+    }
+}
+
+.hamburger-toggle span {
+  position: absolute;  
+  left: 0;
+  height: 6px;
+  width: 45px;
+  display: block;
+  background: $hamburger-color;
+  border-radius: 5px;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+
+  &:nth-child(1) {
+    top: 6px;
+  }
+
+  &:nth-child(2), &:nth-child(3) {
+    top: 18px;
+  }
+
+  &:nth-child(4) {
+    top: 30px;
+  }
+}
+
+.hamburger-toggle.open span {
+  &:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+
+  &:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  &:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+}

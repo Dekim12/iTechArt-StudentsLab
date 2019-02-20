@@ -1,0 +1,76 @@
+@import '../../../style/vars';
+
+@media (max-width: 1150px) {
+  .pop-up-menu .nav-links {
+    width: 65%;
+  }
+}
+
+@media (max-width: 900px) {
+  .pop-up-menu .nav-links {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .pop-up-menu .nav-links {
+    flex-direction: column;
+    align-items: center;
+    
+  }
+}
+
+.pop-up-menu {
+	position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+	top: 0;
+	background: $menu-bg;
+  z-index: 99;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links a {  
+  position: relative;
+  margin: 20px 0;  
+  padding: 10px 20px;
+  display: block;
+  color: $menu-nav-link-color;
+  font-size: 1.6rem;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+
+  &:after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    display: block;
+    bottom: 0;
+    right: 20px;
+    left: 20px;
+    background-color: $menu-nav-link-bg_h;
+    transition: all .3s cubic-bezier(0.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: $menu-nav-link-color_h;
+    
+    &:after {      
+      height: 100%;
+      right: 0;
+      left: 0;
+    }
+  }
+
+}
+
+

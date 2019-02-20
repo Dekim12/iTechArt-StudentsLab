@@ -1,19 +1,12 @@
+@import '../../../style/vars';
+
 .header {
   width: 100%;
-  min-height: 75px;
-  height: 10vh;
+  height: 8vh;
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  background-color: rgb(39, 102, 161);
+  justify-content: flex-end;
+  align-items: center;
+  background-color: $header-color;
 }
 
-.nav-links {
-}
-.nav-links a {
-  margin: 0 20px;
-  display: inline-block;
-}
-
-.nav-links a.active {
-  color: white;
-}

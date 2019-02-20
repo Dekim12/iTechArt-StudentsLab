@@ -1,16 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './Header.scss';
+import { BurgerBtnContainer } from '../../redux/containers';
+import './header.scss';
 
-const Header = () => (
-  <div className='header'>
-    <ul className='nav-links'>
-      <NavLink exact to='/'>
-        Home
-      </NavLink>
-      <NavLink to='/favorite'>Favorite beer</NavLink>
-    </ul>
-  </div>
-);
-
+const Header = () => {
+  return (
+    <div className='header'>
+      <BurgerBtnContainer />
+    </div>
+  );
+};
 export default Header;

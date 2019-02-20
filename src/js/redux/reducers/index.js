@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import firstReducer from './firstReducer';
+import menuReducer from './menuReducer';
 
-export default combineReducers({ firstReducer });
+export default combineReducers({ menuReducer });
