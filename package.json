@@ -32,20 +32,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "editorconfig": "^0.15.2",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "babel-loader": "^8.0.5",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-editorconfig": "0.0.3",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-to-editorconfig": "^2.0.0",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.4",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
-    "pretty-quick": "^1.10.0",
     "sass-loader": "^7.1.0"
   }
 }

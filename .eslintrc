@@ -1,6 +1,6 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react", "react-app"],
-  "plugins": ["editorconfig", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -24,7 +24,8 @@
     "eslint linebreak-style": [0, "error", "windows"],
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "quotes": ["warn", "single"]
   },
   "globals": {
     "window": true,
@@ -34,6 +35,12 @@
     "FileReader": true,
     "Blob": true,
     "navigator": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.2.0"
+    }
   },
   "parser": "babel-eslint"
 }
