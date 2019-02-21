@@ -13,9 +13,8 @@ const PopUpMenu = ({ isOpen, toggleMenu }) => (
   >
     <nav className='nav-links'>
       <NavLink exact to='/'>
-        Home
+        Search Beer
       </NavLink>
-      <NavLink to='/search'>Search Beer</NavLink>
       <NavLink to='/favorite'>Favorite Beer</NavLink>
     </nav>
   </div>

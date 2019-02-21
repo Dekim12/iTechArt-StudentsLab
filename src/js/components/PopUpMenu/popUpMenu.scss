@@ -1,21 +1,22 @@
 @import '../../../style/vars';
 
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .pop-up-menu .nav-links {
-    width: 65%;
+    width: 40%;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   .pop-up-menu .nav-links {
-    width: 80%;
+    width: 55%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .pop-up-menu .nav-links {
+    width: 100%;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
   }
 }
 
@@ -26,7 +27,7 @@
   width: 100%;
   height: 100vh;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   background: $menu-bg;
   z-index: 99;
 }
@@ -36,14 +37,14 @@
 }
 
 .nav-links {
-  width: 50%;
+  width: 35%;
   display: flex;
   justify-content: space-between;
 }
 
-.nav-links a {  
+.nav-links a {
   position: relative;
-  margin: 20px 0;  
+  margin: 20px 0;
   padding: 10px 20px;
   display: block;
   color: $menu-nav-link-color;
@@ -59,21 +60,18 @@
     right: 20px;
     left: 20px;
     background-color: $menu-nav-link-bg_h;
-    transition: all .3s cubic-bezier(0.2, 0, 0, 1);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
     transform-origin: bottom center;
     z-index: -1;
   }
-  
+
   &:hover {
     color: $menu-nav-link-color_h;
-    
-    &:after {      
+
+    &:after {
       height: 100%;
       right: 0;
       left: 0;
     }
   }
-
 }
-
-
