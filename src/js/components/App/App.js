@@ -10,15 +10,15 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <div className='app'>
+        <section className='app'>
           <Header />
-          <div className='content'>
+          <main className='content'>
             <Route exact path='/' component={HomePage} />
             <Route path='/favorite' component={FavoritesPage} />
             <Route path='/search' component={SearchPage} />
-          </div>
+          </main>
           <MenuContainer />
-        </div>
+        </section>
       </HashRouter>
     );
   }

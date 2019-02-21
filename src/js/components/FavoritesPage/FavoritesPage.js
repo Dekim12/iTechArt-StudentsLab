@@ -2,7 +2,7 @@ import React from 'react';
 import './favoritesPage.scss';
 
 const FavoritesPage = () => (
-  <div className='page favorites-page'>this is a Favorites page</div>
+  <article className='page favorites-page'>this is a Favorites page</article>
 );
 
 export default FavoritesPage;

@@ -2,7 +2,7 @@ import React from 'react';
 import './searchPage.scss';
 
 const SearchPage = () => (
-  <div className='page search-page'>this is a SearchPage</div>
+  <article className='page search-page'>this is a SearchPage</article>
 );
 
 export default SearchPage;

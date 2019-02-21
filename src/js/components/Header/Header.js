@@ -4,9 +4,9 @@ import './header.scss';
 
 const Header = () => {
   return (
-    <div className='header'>
+    <header className='header'>
       <BurgerBtnContainer />
-    </div>
+    </header>
   );
 };
 export default Header;
