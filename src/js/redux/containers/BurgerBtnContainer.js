@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { menuSelector } from '../selectors';
 import { toggleMenu } from '../actions';
 import { HamburgerBtn } from '../../components';
 
 const mapStateToProps = state => ({
-  isOpen: menuSelector(state).isOpen,
+  isOpen: state.menuState.isOpen,
 });
 
 const mapDispatchToProps = dispatch =>
