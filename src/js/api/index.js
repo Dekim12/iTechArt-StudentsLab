@@ -1,15 +1,12 @@
 import axios from 'axios';
-import { successApiRequest, isLoadingHandler } from '../redux/actions';
+import { successApiRequest } from '../redux/actions';
+import { PUNK_API } from '../constants';
 
 export const asyncApiRequest = () => {
   return async dispatch => {
-    dispatch(isLoadingHandler());
-
     try {
-      const response = await axios.get(
-        'https://api.punkapi.com/v2/beers?page=1&per_page=80'
-      );
-      dispatch(successApiRequest(response.data));
+      const firstPage = await axios.get(PUNK_API);
+      dispatch(successApiRequest(firstPage.data));
     } catch (error) {
       alert(error);
     }

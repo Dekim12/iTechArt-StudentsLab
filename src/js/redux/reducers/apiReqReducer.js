@@ -1,15 +1,13 @@
-import { IS_LOADING_HANDLER, REQUEST_SUCCESS } from '../../constants';
+import { REQUEST_SUCCESS } from '../../constants';
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
 };
 
 const apiReqReducer = (state = initialState, action) => {
   switch (action.type) {
-    case IS_LOADING_HANDLER:
-      return { isLoading: !state.isLoading };
     case REQUEST_SUCCESS:
-      return { isLoading: false, data: action.payload };
+      return { isLoading: !state.isLoading, data: action.payload };
     default:
       return state;
   }
