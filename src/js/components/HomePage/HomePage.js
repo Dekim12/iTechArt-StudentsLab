@@ -1,8 +1,8 @@
 import React from 'react';
-import './HomePage.scss';
+import './homePage.scss';
 
 const HomePage = () => (
-  <div className='page home-page'>this is a Home page</div>
+  <article className='page home-page'>this is a Home page</article>
 );
 
 export default HomePage;

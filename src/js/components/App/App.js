@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, HashRouter } from 'react-router-dom';
-import { HomePage, FavoritesPage, Header } from '../index';
-import './App.scss';
+import { HomePage, FavoritesPage, SearchPage, Header } from '../index';
+import { MenuContainer } from '../../redux/containers';
+import './app.scss';
 
 class App extends Component {
   state = {};
@@ -9,13 +10,15 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <div className='app'>
+        <section className='app'>
           <Header />
-          <div className='content'>
+          <main className='content'>
             <Route exact path='/' component={HomePage} />
             <Route path='/favorite' component={FavoritesPage} />
-          </div>
-        </div>
+            <Route path='/search' component={SearchPage} />
+          </main>
+          <MenuContainer />
+        </section>
       </HashRouter>
     );
   }

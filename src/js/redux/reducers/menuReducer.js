@@ -1,7 +1,13 @@
-const initialState = {};
+import { MENU_TOGGLE } from '../../constants';
+
+const initialState = {
+  isOpen: false,
+};
 
 const firstReducer = (state = initialState, action) => {
   switch (action.type) {
+    case MENU_TOGGLE:
+      return { isOpen: !state.isOpen };
     default:
       return state;
   }
