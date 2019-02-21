@@ -14,10 +14,10 @@ const HamburgerBtn = ({ isOpen, toggleMenu }) => (
     onKeyPress={toggleMenu}
     type='button'
   >
-    <span />
-    <span />
-    <span />
-    <span />
+    <span className='btn-line' />
+    <span className='btn-line' />
+    <span className='btn-line' />
+    <span className='btn-line' />
   </button>
 );
 
