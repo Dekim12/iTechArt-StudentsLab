@@ -4,7 +4,7 @@ const initialState = {
   isLoading: true,
 };
 
-const apiReqReducer = (state = initialState, action) => {
+const apiReqState = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_SUCCESS:
       return { isLoading: !state.isLoading, data: action.payload };
@@ -13,4 +13,4 @@ const apiReqReducer = (state = initialState, action) => {
   }
 };
 
-export default apiReqReducer;
+export default apiReqState;

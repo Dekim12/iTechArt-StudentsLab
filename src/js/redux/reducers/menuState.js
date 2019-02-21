@@ -4,7 +4,7 @@ const initialState = {
   isOpen: false,
 };
 
-const menuReducer = (state = initialState, action) => {
+const menuState = (state = initialState, action) => {
   switch (action.type) {
     case MENU_TOGGLE:
       return { isOpen: !state.isOpen };
@@ -13,4 +13,4 @@ const menuReducer = (state = initialState, action) => {
   }
 };
 
-export default menuReducer;
+export default menuState;
