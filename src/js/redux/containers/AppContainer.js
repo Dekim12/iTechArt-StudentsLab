@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleMenu } from '../actions';
-import { HamburgerBtn } from '../../components';
+import { asyncApiRequest } from '../../api';
+import { App } from '../../components';
 
 const mapStateToProps = state => ({
-  isOpen: state.menuState.isOpen,
+  isLoading: state.apiReqState.isLoading,
+  data: state.apiReqState.data,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      toggleMenu,
+      asyncApiRequest,
     },
     dispatch
   );
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HamburgerBtn);
+)(App);
