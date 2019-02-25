@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Route, HashRouter } from 'react-router-dom';
-import { FavoritesPage, SearchPage, Header, Spinner } from '../index';
-import { MenuContainer } from '../../redux/containers';
+import PropTypes from 'prop-types';
+import { FavoritesPage, Header, Spinner } from '../index';
+import {
+  MenuContainer,
+  SearchPageContainer,
+  BeerPageContainer,
+} from '../../redux/containers';
 import './app.scss';
 
 class App extends Component {
@@ -13,13 +17,15 @@ class App extends Component {
 
   render() {
     const { isLoading } = this.props;
+
     return (
       <HashRouter>
         <section className='app'>
           <Header />
           <main className='content'>
-            <Route exact path='/' component={SearchPage} />
+            <Route exact path='/' component={SearchPageContainer} />
             <Route path='/favorite' component={FavoritesPage} />
+            <Route path='/beer' component={BeerPageContainer} />
           </main>
           <MenuContainer />
           <Spinner indicator={isLoading} />

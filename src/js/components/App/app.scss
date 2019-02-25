@@ -1,8 +1,15 @@
 @import '../../../style/vars';
 
+@media (max-width: 750px) {
+  .app .content {
+    width: 95%;
+  }
+}
+
 .app {
   min-height: 100vh;
-  background-color: rgb(172, 147, 147);
+  background: url('../../../image/bground.jpg') no-repeat fixed;
+  background-size: cover;
 }
 
 .content {

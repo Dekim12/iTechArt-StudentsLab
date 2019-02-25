@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import menuState from './menuState';
-import apiReqState from './apiReqState';
+import apiRequestState from './apiRequestState';
+import pagesState from './pagesState';
 
-export default combineReducers({ menuState, apiReqState });
+export default combineReducers({ menuState, apiRequestState, pagesState });

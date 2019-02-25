@@ -5,3 +5,7 @@ export { default as FavoritesPage } from './FavoritesPage/FavoritesPage';
 export { default as PopUpMenu } from './PopUpMenu/PopUpMenu';
 export { default as SearchPage } from './SearchPage/SearchPage';
 export { default as Spinner } from './Spinner/Spinner';
+export { default as BeerLabel } from './BeerLabel/BeerLabel';
+export { default as SearchResult } from './SearchResult/SearchResult';
+export { default as Button } from './Button/Button';
+export { default as BeerPage } from './BeerPage/BeerPage';

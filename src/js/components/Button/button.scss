@@ -1,0 +1,12 @@
+@import '../../../style/vars';
+
+.favorite-btn {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: $label-btn;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    color: $label-btn_h;
+  }
+}

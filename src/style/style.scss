@@ -1,5 +1,5 @@
-@import "reset";
-@import "vars";
+@import 'reset';
+@import 'vars';
 
 * {
   box-sizing: border-box;
@@ -7,8 +7,8 @@
 
 body {
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: $default-font-size;
 }
@@ -34,8 +34,15 @@ button {
 
 .page {
   width: 100%;
-  min-height: 92vh;
+  min-height: 93vh;
   display: flex;
   justify-content: center;
-  background-color: #fff;
+  border-left: 2px solid $page-border;
+  border-right: 2px solid $page-border;
+  background-color: $page-bg;
+}
+
+h3 {
+  font-size: 1.37rem;
+  font-family: 'Lora', serif;
 }
