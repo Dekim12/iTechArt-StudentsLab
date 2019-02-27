@@ -9,3 +9,5 @@ export { default as BeerLabel } from './BeerLabel/BeerLabel';
 export { default as SearchResult } from './SearchResult/SearchResult';
 export { default as Button } from './Button/Button';
 export { default as BeerPage } from './BeerPage/BeerPage';
+export { default as Ingredients } from './Ingredients/Ingredients';
+export { default as Method } from './Method/Method';

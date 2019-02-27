@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 import { SearchResult } from '../index';
 import './searchPage.scss';
 
-const SearchPage = ({ data, setBeerData }) => {
+const SearchPage = ({ data }) => {
   return (
     <section className='page search-page'>
-      <SearchResult beerItems={data} setData={setBeerData} />
+      <SearchResult beerItems={data} />
     </section>
   );
 };
 
 SearchPage.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
-  setBeerData: PropTypes.func.isRequired,
 };
 
 SearchPage.defaultProps = {

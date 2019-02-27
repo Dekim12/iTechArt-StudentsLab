@@ -4,11 +4,9 @@ import { BeerLabel } from '../index';
 import { generateKey } from '../../appLogic/utils';
 import './searchResult.scss';
 
-const SearchResult = ({ beerItems, setData }) => {
+const SearchResult = ({ beerItems }) => {
   const generateItemsList = items =>
-    items.map(elem => (
-      <BeerLabel data={elem} key={generateKey()} setData={setData} />
-    ));
+    items.map(elem => <BeerLabel data={elem} key={generateKey()} />);
 
   return (
     <article className='search-result'>
@@ -19,7 +17,6 @@ const SearchResult = ({ beerItems, setData }) => {
 
 SearchResult.propTypes = {
   beerItems: PropTypes.arrayOf(PropTypes.object),
-  setData: PropTypes.func.isRequired,
 };
 
 SearchResult.defaultProps = {

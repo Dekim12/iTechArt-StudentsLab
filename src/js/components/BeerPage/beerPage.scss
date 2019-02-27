@@ -1,1 +1,139 @@
 @import '../../../style/vars';
+
+.page.beer-page {
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
+  border-left: 2px solid rgb(114, 114, 114);
+  border-right: 2px solid rgb(114, 114, 114);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.page.beer-page h2 {
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px white, 0 0 20px rgb(51, 51, 51);
+}
+
+.page.beer-page p {
+  display: inline-block;
+  font-size: 1.1rem;
+  text-indent: 0.8rem;
+  line-height: 1.4;
+}
+
+.main-beer-info {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-beer-info h1 {
+  margin: 0 0 5px 50px;
+}
+
+.beer-description {
+  width: 100%;
+}
+
+.tagline {
+  margin-left: 50px;
+  display: block;
+  font-size: 0.93rem;
+  font-style: oblique;
+  color: rgb(107, 107, 107);
+}
+
+.main-beer-info p {
+  margin: 20px 0;
+}
+
+.page.beer-page img {
+  width: 135px;
+  height: 300px;
+  margin: 0 70px;
+  user-select: none;
+}
+
+.prop-and-food {
+  width: 100%;
+  display: flex;
+}
+
+.prop-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:first-child {
+    margin-left: 80px;
+  }
+
+  &:last-child {
+    margin-left: 150px;
+  }
+}
+
+.beer-properties {
+  width: 250px;
+  height: 122px;
+}
+
+.beer-properties li {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+}
+
+.prop-value {
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  border-radius: 15px;
+  background-color: rgb(68, 68, 68);
+  font-size: 1rem;
+  color: white;
+}
+
+.fa-info-circle {
+  position: absolute;
+  left: 65px;
+  display: inline-block;
+  color: rgb(212, 212, 212);
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(173, 219, 247);
+  }
+}
+
+.food-pairing li {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  font-size: 1.2rem;
+}
+
+.brewing {
+  width: 100%;
+}
+
+.brewing > h2 {
+  margin-left: 50px;
+}
+
+.ingredients-and-method {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}

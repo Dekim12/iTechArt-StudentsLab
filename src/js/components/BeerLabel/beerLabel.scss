@@ -1,5 +1,17 @@
 @import '../../../style/vars';
 
+@media (max-width: 750px) {
+  article.beer-label {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  article.beer-label {
+    margin: 5px;
+  }
+}
+
 .beer-label {
   width: 290px;
   height: 317px;
@@ -56,8 +68,4 @@
   &:hover {
     color: $label-btn_h;
   }
-}
-
-.fa-star {
-  font-size: 1.38rem;
 }

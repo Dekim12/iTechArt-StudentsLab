@@ -42,7 +42,46 @@ button {
   background-color: $page-bg;
 }
 
+h1,
+h2,
+h3 {
+  font-family: 'Lora', serif;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: bold;
+  text-shadow: -1px 0 1px white, 0 -1px 1px white, 0 1px 1px white,
+    1px 0 1px white, 0 0 8px white, 0 0 8px white, 0 0 8px white,
+    2px 2px 3px black;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
 h3 {
   font-size: 1.37rem;
-  font-family: 'Lora', serif;
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.list {
+  background-color: #fff;
+  border: 1px solid rgb(114, 114, 114);
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+}
+
+.list li {
+  padding: 7px 15px;
+  border-top: 1px solid rgb(114, 114, 114);
+
+  &:first-child {
+    border-top: none;
+  }
 }

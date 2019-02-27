@@ -1,17 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from '../index';
 import './beerLabel.scss';
 
-const BeerLabel = ({ data, setData }) => {
+const BeerLabel = ({ data }) => {
   const star = <i className='fa fa-star' aria-hidden='true' />;
   const url = data.image_url;
   const { name, tagline } = data;
-
-  const setPageData = () => {
-    setData(data);
-  };
 
   return (
     <article className='beer-label'>
@@ -21,14 +17,9 @@ const BeerLabel = ({ data, setData }) => {
         <p>{tagline}</p>
       </div>
       <div className='button-wrapper'>
-        <NavLink
-          exact
-          to='/beer'
-          className='open-page-link'
-          onClick={setPageData}
-        >
+        <Link to={`/beer/${data.id}`} from='/search' className='open-page-link'>
           OPEN
-        </NavLink>
+        </Link>
         <Button
           className='favorite-btn'
           content={star}
@@ -40,7 +31,6 @@ const BeerLabel = ({ data, setData }) => {
 };
 
 BeerLabel.propTypes = {
-  setData: PropTypes.func.isRequired,
   data: PropTypes.objectOf(PropTypes.any),
 };
 

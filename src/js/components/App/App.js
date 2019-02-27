@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, HashRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FavoritesPage, Header, Spinner } from '../index';
 import {
@@ -19,18 +19,18 @@ class App extends Component {
     const { isLoading } = this.props;
 
     return (
-      <HashRouter>
+      <BrowserRouter>
         <section className='app'>
           <Header />
           <main className='content'>
             <Route exact path='/' component={SearchPageContainer} />
             <Route path='/favorite' component={FavoritesPage} />
-            <Route path='/beer' component={BeerPageContainer} />
+            <Route path='/beer/:id' component={BeerPageContainer} />
           </main>
           <MenuContainer />
           <Spinner indicator={isLoading} />
         </section>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }

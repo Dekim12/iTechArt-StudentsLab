@@ -1,0 +1,25 @@
+@import '../../../style/vars';
+
+.method-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.method li {
+  max-width: 450px;
+  min-width: 250px;
+  padding: 5px;
+  border-bottom: 1px solid rgb(107, 107, 107);
+}
+
+.method h4 {
+  margin: 0 0 5px 8px;
+}
+
+.method span {
+  display: block;
+  margin-bottom: 3px;
+  font-style: oblique;
+  text-indent: 3px;
+}

@@ -1,0 +1,22 @@
+@import '../../../style/vars';
+
+.ingredients-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ingredients {
+  font-style: oblique;
+  color: $ingredients-color;
+}
+
+.ingredients h4 {
+  margin: 0 0 5px 5px;
+}
+
+.ingredients span {
+  display: block;
+  padding-bottom: 3px;
+  font-size: 0.95rem;
+}
