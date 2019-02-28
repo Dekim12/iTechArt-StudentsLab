@@ -1,10 +1,11 @@
 import React from 'react';
 import { Ingredients, Method, FoodPairing, Properties, Button } from '../index';
 import { selectionNecessaryData } from '../../appLogic';
+import { MAX_ITEM_ID } from '../../constants';
 import './beerPage.scss';
 
 const BeerPage = ({ beersData, match }) => {
-  if (!beersData || match.params.id > 234 || match.params.id < 1) {
+  if (!beersData || match.params.id > MAX_ITEM_ID || match.params.id < 1) {
     return <section className='page beer-page' />;
   }
 
@@ -19,7 +20,11 @@ const BeerPage = ({ beersData, match }) => {
           <span className='tagline'>{beer.tagline}</span>
           <p>{beer.description}</p>
           <div className='prop-and-food'>
-            <Properties abv={beer.abv} ibu={beer.ibu} ebc={beer.ebc} />
+            <Properties
+              alcohol={beer.alcohol}
+              bitterness={beer.bitterness}
+              beerColor={beer.beerColor}
+            />
             <FoodPairing food={beer.foodPairing} />
           </div>
         </div>

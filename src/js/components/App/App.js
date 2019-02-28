@@ -38,12 +38,10 @@ class App extends Component {
 App.propTypes = {
   isLoading: PropTypes.bool,
   asyncApiRequest: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(PropTypes.object),
 };
 
 App.defaultProps = {
   isLoading: true,
-  data: [],
 };
 
 export default App;

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid/v1';
 import { BeerLabel } from '../index';
-import { generateKey } from '../../appLogic/utils';
 import './searchResult.scss';
 
 const SearchResult = ({ beerItems }) => {
   const generateItemsList = items =>
-    items.map(elem => <BeerLabel data={elem} key={generateKey()} />);
+    items.map(elem => <BeerLabel data={elem} key={uuid()} />);
 
   return (
     <article className='search-result'>

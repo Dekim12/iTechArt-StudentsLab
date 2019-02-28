@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { generateKey } from '../../appLogic';
+import uuid from 'uuid/v1';
 import './method.scss';
 
 const Method = ({ fermentation, temp, twist }) => {
   const generateMashItems = mash =>
     mash.map(item => (
-      <span key={generateKey()}>
+      <span key={uuid()}>
         {`${item.duration || 'X'} minutes at ${item.temp.value}°C`}
       </span>
     ));

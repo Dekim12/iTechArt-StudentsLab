@@ -18,7 +18,7 @@ const BeerLabel = ({ data }) => {
       </div>
       <div className='button-wrapper'>
         <Link to={`/beer/${data.id}`} from='/search' className='open-page-link'>
-          OPEN
+          open
         </Link>
         <Button
           className='favorite-btn'

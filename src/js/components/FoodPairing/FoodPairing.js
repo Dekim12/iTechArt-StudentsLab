@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { generateKey } from '../../appLogic';
+import uuid from 'uuid/v1';
 import './foodPairing.scss';
 
 const FoodPairing = ({ food }) => {
-  const generateItems = data =>
-    data.map(elem => <li key={generateKey()}>{elem}</li>);
+  const generateItems = data => data.map(elem => <li key={uuid()}>{elem}</li>);
 
   return (
     <div className='food-list-wrapper'>

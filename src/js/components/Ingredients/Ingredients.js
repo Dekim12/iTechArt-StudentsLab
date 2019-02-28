@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { generateKey } from '../../appLogic';
+import uuid from 'uuid/v1';
 import './ingredients.scss';
 
 const Ingredients = ({ ingredients, water }) => {
   const generateMaltItems = malt =>
     malt.map(item => (
-      <span key={generateKey()}>{`${item.name} - ${item.amount.value} ${
+      <span key={uuid()}>{`${item.name} - ${item.amount.value} ${
         item.amount.unit
       }`}</span>
     ));
 
   const generateHopsItems = hops =>
     hops.map(item => (
-      <span key={generateKey()}>{`${item.name} - ${item.amount.value} ${
+      <span key={uuid()}>{`${item.name} - ${item.amount.value} ${
         item.amount.unit
       }, add when ${item.add}`}</span>
     ));
