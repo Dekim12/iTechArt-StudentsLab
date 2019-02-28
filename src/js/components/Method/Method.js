@@ -3,33 +3,29 @@ import PropTypes from 'prop-types';
 import { generateKey } from '../../appLogic';
 import './method.scss';
 
-const Method = ({ method }) => {
-  const generateMashItems = mash => {
-    if (mash) {
-      return mash.map(item => (
-        <span key={generateKey()}>
-          {`${item.duration || 'X'} minutes at ${item.temp.value}°C`}
-        </span>
-      ));
-    }
-    return null;
-  };
-  console.log(method);
+const Method = ({ fermentation, temp, twist }) => {
+  const generateMashItems = mash =>
+    mash.map(item => (
+      <span key={generateKey()}>
+        {`${item.duration || 'X'} minutes at ${item.temp.value}°C`}
+      </span>
+    ));
+
   return (
     <div className='method-wrapper'>
       <h2>Method</h2>
       <ul className='method'>
         <li>
           <h4>Mash</h4>
-          {generateMashItems(method.mash_temp)}
+          {generateMashItems(temp)}
         </li>
         <li>
           <h4>Fermentation</h4>
-          <span>{`Perform at ${method.fermentation.temp.value} °C`}</span>
+          <span>{`Perform at ${fermentation.temp.value} °C`}</span>
         </li>
         <li>
           <h4>Twist</h4>
-          <span>{method.twist || 'Without twist'}</span>
+          <span>{twist || 'Without twist'}</span>
         </li>
       </ul>
     </div>
@@ -37,11 +33,15 @@ const Method = ({ method }) => {
 };
 
 Method.propTypes = {
-  method: PropTypes.objectOf(PropTypes.any),
+  fermentation: PropTypes.objectOf(PropTypes.any),
+  temp: PropTypes.arrayOf(PropTypes.object),
+  twist: PropTypes.string,
 };
 
 Method.defaultProps = {
-  method: {},
+  fermentation: {},
+  temp: [],
+  twist: '',
 };
 
 export default Method;

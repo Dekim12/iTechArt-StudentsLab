@@ -1,12 +1,37 @@
 @import '../../../style/vars';
 
-.favorite-btn {
-  font-size: 1.125rem;
-  font-weight: bold;
+@media (max-width: 1200px) {
+  .beer-page .fav-beer-btn {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .beer-page .fav-beer-btn {
+    font-size: 3rem;
+  }
+}
+
+%favorite-effect {
   color: $label-btn;
   transition: 0.2s all ease-in-out;
 
   &:hover {
     color: $label-btn_h;
   }
+}
+
+.favorite-btn {
+  @extend %favorite-effect;
+  font-size: 1.125rem;
+}
+
+.fav-beer-btn {
+  @extend %favorite-effect;
+  position: fixed;
+  color: $fav-beer-btn-color;
+  right: 10px;
+  bottom: 5px;
+  font-size: 5rem;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.7);
 }

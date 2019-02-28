@@ -4,7 +4,6 @@ import { BeerPage } from '../../components';
 const mapStateToProps = state => {
   return {
     beersData: state.apiRequestState.data,
-    isLoading: state.apiRequestState.isLoading,
   };
 };
 

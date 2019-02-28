@@ -4,27 +4,19 @@ import { generateKey } from '../../appLogic';
 import './ingredients.scss';
 
 const Ingredients = ({ ingredients, water }) => {
-  const generateMaltItems = malt => {
-    if (malt) {
-      return malt.map(item => (
-        <span key={generateKey()}>{`${item.name} - ${item.amount.value} ${
-          item.amount.unit
-        }`}</span>
-      ));
-    }
-    return null;
-  };
+  const generateMaltItems = malt =>
+    malt.map(item => (
+      <span key={generateKey()}>{`${item.name} - ${item.amount.value} ${
+        item.amount.unit
+      }`}</span>
+    ));
 
-  const generateHopsItems = hops => {
-    if (hops) {
-      return hops.map(item => (
-        <span key={generateKey()}>{`${item.name} - ${item.amount.value} ${
-          item.amount.unit
-        }, add when ${item.add}`}</span>
-      ));
-    }
-    return null;
-  };
+  const generateHopsItems = hops =>
+    hops.map(item => (
+      <span key={generateKey()}>{`${item.name} - ${item.amount.value} ${
+        item.amount.unit
+      }, add when ${item.add}`}</span>
+    ));
 
   return (
     <div className='ingredients-wrapper'>

@@ -1,0 +1,28 @@
+@import '../../../style/vars';
+
+@media (max-width: 1400px) {
+  .beer-page .food-list-wrapper {
+    margin: 7px 5px 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .beer-page .food-list-wrapper {
+    margin: 15px 0 0;
+  }
+}
+
+.food-list-wrapper {
+  margin: 7px 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.food-pairing li {
+  min-width: 270px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}

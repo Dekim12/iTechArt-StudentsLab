@@ -13,6 +13,36 @@ body {
   font-size: $default-font-size;
 }
 
+h1,
+h2,
+h3 {
+  font-family: 'Lora', serif;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: bold;
+  text-shadow: -1px 0 1px rgb(255, 255, 255), 0 -1px 1px rgb(255, 255, 255),
+    0 1px 1px rgb(255, 255, 255), 1px 0 1px rgb(255, 255, 255),
+    0 0 8px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255),
+    0 0 8px rgb(255, 255, 255), 2px 2px 3px rgb(0, 0, 0);
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.37rem;
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
 a {
   text-decoration: none;
   color: rgb(0, 0, 0);
@@ -42,44 +72,15 @@ button {
   background-color: $page-bg;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Lora', serif;
-}
-
-h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  text-shadow: -1px 0 1px white, 0 -1px 1px white, 0 1px 1px white,
-    1px 0 1px white, 0 0 8px white, 0 0 8px white, 0 0 8px white,
-    2px 2px 3px black;
-}
-
-h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-h3 {
-  font-size: 1.37rem;
-}
-
-h4 {
-  font-size: 1.15rem;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-}
-
 .list {
-  background-color: #fff;
-  border: 1px solid rgb(114, 114, 114);
+  background-color: $list-bg;
+  border: 1px solid $list-border-color;
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
 }
 
 .list li {
   padding: 7px 15px;
-  border-top: 1px solid rgb(114, 114, 114);
+  border-top: 1px solid $list-border-color;
 
   &:first-child {
     border-top: none;

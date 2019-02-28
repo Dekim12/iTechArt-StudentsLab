@@ -1,23 +1,76 @@
 @import '../../../style/vars';
 
+@media (max-width: 1400px) {
+  .beer-page .main-beer-info {
+    justify-content: center;
+  }
+
+  .main-beer-info .beer-description {
+    width: 100%;
+  }
+
+  .page.beer-page img {
+    margin-top: 30px;
+  }
+
+  .beer-page .prop-and-food {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .beer-page .ingredients-and-method {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 800px) {
+  .beer-page .main-beer-info h1 {
+    margin: 0 0 5px 0;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .beer-page .main-beer-info {
+    margin-bottom: 20px;
+  }
+
+  .beer-page .tagline {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .beer-page .main-beer-info p {
+    margin: 12px 0 0 0;
+  }
+
+  main > .page.beer-page {
+    padding: 10px;
+  }
+
+  .beer-page .brewing > h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
 .page.beer-page {
+  position: relative;
   width: 100%;
   height: 100%;
   padding: 30px 20px;
-  border-left: 2px solid rgb(114, 114, 114);
-  border-right: 2px solid rgb(114, 114, 114);
+  border-left: 2px solid $beer-page-border;
+  border-right: 2px solid $beer-page-border;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: $beer-page-bg;
 }
 
-.page.beer-page h2 {
+.beer-page h2 {
   margin-bottom: 10px;
-  text-shadow: 0 0 15px white, 0 0 20px rgb(51, 51, 51);
+  text-shadow: 0 0 15px rgb(255, 255, 255), 0 0 20px rgb(51, 51, 51);
 }
 
-.page.beer-page p {
+.beer-page p {
   display: inline-block;
   font-size: 1.1rem;
   text-indent: 0.8rem;
@@ -26,8 +79,9 @@
 
 .main-beer-info {
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -36,7 +90,7 @@
 }
 
 .beer-description {
-  width: 100%;
+  width: 73%;
 }
 
 .tagline {
@@ -44,83 +98,23 @@
   display: block;
   font-size: 0.93rem;
   font-style: oblique;
-  color: rgb(107, 107, 107);
+  color: $tagline-color;
 }
 
 .main-beer-info p {
-  margin: 20px 0;
+  margin: 20px 0 5px 0;
 }
 
-.page.beer-page img {
+.beer-page img {
   width: 135px;
   height: 300px;
-  margin: 0 70px;
+  margin: 0 75px;
   user-select: none;
 }
 
 .prop-and-food {
   width: 100%;
   display: flex;
-}
-
-.prop-list-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &:first-child {
-    margin-left: 80px;
-  }
-
-  &:last-child {
-    margin-left: 150px;
-  }
-}
-
-.beer-properties {
-  width: 250px;
-  height: 122px;
-}
-
-.beer-properties li {
-  position: relative;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.3rem;
-}
-
-.prop-value {
-  display: inline-block;
-  width: 50px;
-  height: 26px;
-  text-align: center;
-  line-height: 26px;
-  border-radius: 15px;
-  background-color: rgb(68, 68, 68);
-  font-size: 1rem;
-  color: white;
-}
-
-.fa-info-circle {
-  position: absolute;
-  left: 65px;
-  display: inline-block;
-  color: rgb(212, 212, 212);
-  font-size: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    color: rgb(173, 219, 247);
-  }
-}
-
-.food-pairing li {
-  display: flex;
-  align-items: center;
-  min-height: 40px;
-  font-size: 1.2rem;
 }
 
 .brewing {
@@ -133,7 +127,6 @@
 
 .ingredients-and-method {
   width: 100%;
-  margin-top: 25px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }

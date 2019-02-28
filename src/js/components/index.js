@@ -11,3 +11,5 @@ export { default as Button } from './Button/Button';
 export { default as BeerPage } from './BeerPage/BeerPage';
 export { default as Ingredients } from './Ingredients/Ingredients';
 export { default as Method } from './Method/Method';
+export { default as FoodPairing } from './FoodPairing/FoodPairing';
+export { default as Properties } from './Properties/Properties';
