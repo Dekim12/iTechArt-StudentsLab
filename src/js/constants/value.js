@@ -1,5 +1,3 @@
-export const MAX_ITEM_ID = 234;
-
 export const BEER_PROPERTY = {
   alcohol: {
     tooltip: 'Alcohol By Volume',

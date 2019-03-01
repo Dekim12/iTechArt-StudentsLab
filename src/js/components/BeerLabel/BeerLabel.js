@@ -20,11 +20,7 @@ const BeerLabel = ({ data }) => {
         <Link to={`/beer/${data.id}`} from='/search' className='open-page-link'>
           open
         </Link>
-        <Button
-          className='favorite-btn'
-          content={star}
-          makeChanges={() => console.log('btn works')}
-        />
+        <Button className='favorite-btn' content={star} />
       </div>
     </article>
   );

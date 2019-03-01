@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getBeerById } from '../../api';
 import { BeerPage } from '../../components';
 
 const mapStateToProps = state => {
@@ -7,4 +9,15 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(BeerPage);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getBeerById,
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BeerPage);

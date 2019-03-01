@@ -1,16 +1,26 @@
 import React from 'react';
-import { Ingredients, Method, FoodPairing, Properties, Button } from '../index';
+import {
+  Ingredients,
+  Method,
+  FoodPairing,
+  Properties,
+  Button,
+  Spinner,
+} from '../index';
 import { selectionNecessaryData } from '../../appLogic';
-import { MAX_ITEM_ID } from '../../constants';
 import './beerPage.scss';
 
-const BeerPage = ({ beersData, match }) => {
-  if (!beersData || match.params.id > MAX_ITEM_ID || match.params.id < 1) {
+const BeerPage = ({ beersData, match, getBeerById }) => {
+  if (!beersData || match.params.id < 1) {
     return <section className='page beer-page' />;
   }
 
   const star = <i className='fa fa-star' aria-hidden='true' />;
   const beer = selectionNecessaryData(beersData, match.params.id);
+  if (!beer) {
+    getBeerById(match.params.id);
+    return <Spinner />;
+  }
 
   return (
     <section className='page beer-page'>
@@ -41,11 +51,7 @@ const BeerPage = ({ beersData, match }) => {
             twist={beer.method.twist}
           />
         </div>
-        <Button
-          className='fav-beer-btn'
-          content={star}
-          makeChanges={() => console.log('btn works')}
-        />
+        <Button className='fav-beer-btn' content={star} />
       </article>
     </section>
   );

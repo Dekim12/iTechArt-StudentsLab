@@ -2,6 +2,9 @@ import _ from 'lodash';
 
 export const selectionNecessaryData = (data, beerId) => {
   const beer = _.find(data, item => item.id === +beerId);
+  if (!beer) {
+    return null;
+  }
   return {
     url: beer.image_url,
     foodPairing: beer.food_pairing,

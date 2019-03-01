@@ -7,7 +7,9 @@ const Properties = props => {
   const generateBeerProperty = arr =>
     arr.map(item => (
       <li key={uuid()}>
-        <span className='prop-value'>{props[item].toFixed(1)}</span>
+        <span className='prop-value'>
+          {props[item] ? props[item].toFixed(1) : 'X'}
+        </span>
         <div className='info-label'>
           <i className='fa fa-info-circle' aria-hidden='true' />
           <span className='tooltip'>{BEER_PROPERTY[item].tooltip}</span>
