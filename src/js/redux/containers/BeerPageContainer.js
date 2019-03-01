@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { asyncApiRequest } from '../../api';
-import { App } from '../../components';
+import { getBeerById } from '../../api';
+import { BeerPage } from '../../components';
 
-const mapStateToProps = state => ({
-  isLoading: state.apiRequestState.isLoading,
-  data: state.apiRequestState.data,
-});
+const mapStateToProps = state => {
+  return {
+    beersData: state.apiRequestState.data,
+  };
+};
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      asyncApiRequest,
+      getBeerById,
     },
     dispatch
   );
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(BeerPage);

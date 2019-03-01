@@ -1,0 +1,101 @@
+@import '../../../style/vars';
+
+@media (max-width: 1400px) {
+  .beer-page .prop-list-wrapper {
+    margin: 7px 5px 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .beer-page .prop-list-wrapper {
+    margin: 10px 0 0;
+  }
+}
+
+.prop-list-wrapper {
+  margin: 7px 0 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.beer-properties {
+  width: 250px;
+  height: 122px;
+}
+
+.beer-properties li {
+  position: relative;
+  height: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1.3rem;
+}
+
+.prop-value {
+  margin-left: 110px;
+  width: 50px;
+  height: 26px;
+  display: inline-block;
+  text-align: center;
+  line-height: 26px;
+  border-radius: 15px;
+  background-color: $prop-value-bg;
+  font-size: 1rem;
+  color: $prop-value-color;
+}
+
+.abbreviation {
+  width: 45px;
+  display: block;
+}
+
+.info-label {
+  position: relative;
+
+  &:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover .fa-info-circle {
+    color: $prop-info-i-h;
+  }
+}
+
+.fa-info-circle {
+  display: block;
+  color: $prop-info-i;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  width: 210px;
+  padding: 10px;
+  top: -40px;
+  left: -5px;
+  display: inline-block;
+  text-align: center;
+  color: $tooltip-color;
+  background: $tooltip-bg;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-style: oblique;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+  transition: all 0.4s ease-in-out;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 7px;
+    display: block;
+    border: 5px solid transparent;
+    border-top: 5px solid $tooltip-bg;
+  }
+}

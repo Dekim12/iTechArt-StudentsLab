@@ -1,2 +1,2 @@
 export * from './menuActions';
-export * from './apiReqActions';
+export * from './apiRequestActions';

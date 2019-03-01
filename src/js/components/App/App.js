@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Route, HashRouter } from 'react-router-dom';
-import { FavoritesPage, SearchPage, Header, Spinner } from '../index';
-import { MenuContainer } from '../../redux/containers';
+import { FavoritesPage, Header, Spinner } from '../index';
+import {
+  MenuContainer,
+  SearchPageContainer,
+  BeerPageContainer,
+} from '../../redux/containers';
 import './app.scss';
 
 class App extends Component {
@@ -13,18 +17,20 @@ class App extends Component {
 
   render() {
     const { isLoading } = this.props;
+
     return (
-      <HashRouter>
+      <BrowserRouter>
         <section className='app'>
           <Header />
           <main className='content'>
-            <Route exact path='/' component={SearchPage} />
+            <Route exact path='/' component={SearchPageContainer} />
             <Route path='/favorite' component={FavoritesPage} />
+            <Route path='/beer/:id' component={BeerPageContainer} />
           </main>
           <MenuContainer />
           <Spinner indicator={isLoading} />
         </section>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
@@ -32,12 +38,10 @@ class App extends Component {
 App.propTypes = {
   isLoading: PropTypes.bool,
   asyncApiRequest: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(PropTypes.object),
 };
 
 App.defaultProps = {
   isLoading: true,
-  data: [],
 };
 
 export default App;

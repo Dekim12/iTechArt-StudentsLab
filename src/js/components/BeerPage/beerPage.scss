@@ -1,0 +1,132 @@
+@import '../../../style/vars';
+
+@media (max-width: 1400px) {
+  .beer-page .main-beer-info {
+    justify-content: center;
+  }
+
+  .main-beer-info .beer-description {
+    width: 100%;
+  }
+
+  .page.beer-page img {
+    margin-top: 30px;
+  }
+
+  .beer-page .prop-and-food {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .beer-page .ingredients-and-method {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 800px) {
+  .beer-page .main-beer-info h1 {
+    margin: 0 0 5px 0;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .beer-page .main-beer-info {
+    margin-bottom: 20px;
+  }
+
+  .beer-page .tagline {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .beer-page .main-beer-info p {
+    margin: 12px 0 0 0;
+  }
+
+  main > .page.beer-page {
+    padding: 10px;
+  }
+
+  .beer-page .brewing > h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+.page.beer-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
+  border-left: 2px solid $beer-page-border;
+  border-right: 2px solid $beer-page-border;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $beer-page-bg;
+}
+
+.beer-page h2 {
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgb(255, 255, 255), 0 0 20px rgb(51, 51, 51);
+}
+
+.beer-page p {
+  display: inline-block;
+  font-size: 1.1rem;
+  text-indent: 0.8rem;
+  line-height: 1.4;
+}
+
+.main-beer-info {
+  width: 100%;
+  margin-bottom: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-beer-info h1 {
+  margin: 0 0 5px 50px;
+}
+
+.beer-description {
+  width: 73%;
+}
+
+.tagline {
+  margin-left: 50px;
+  display: block;
+  font-size: 0.93rem;
+  font-style: oblique;
+  color: $tagline-color;
+}
+
+.main-beer-info p {
+  margin: 20px 0 5px 0;
+}
+
+.beer-page img {
+  width: 135px;
+  height: 300px;
+  margin: 0 75px;
+  user-select: none;
+}
+
+.prop-and-food {
+  width: 100%;
+  display: flex;
+}
+
+.brewing {
+  width: 100%;
+}
+
+.brewing > h2 {
+  margin-left: 50px;
+}
+
+.ingredients-and-method {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}

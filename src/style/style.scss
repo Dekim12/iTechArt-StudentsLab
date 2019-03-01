@@ -1,5 +1,5 @@
-@import "reset";
-@import "vars";
+@import 'reset';
+@import 'vars';
 
 * {
   box-sizing: border-box;
@@ -7,10 +7,40 @@
 
 body {
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: $default-font-size;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Lora', serif;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: bold;
+  text-shadow: -1px 0 1px rgb(255, 255, 255), 0 -1px 1px rgb(255, 255, 255),
+    0 1px 1px rgb(255, 255, 255), 1px 0 1px rgb(255, 255, 255),
+    0 0 8px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255),
+    0 0 8px rgb(255, 255, 255), 2px 2px 3px rgb(0, 0, 0);
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.37rem;
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
 }
 
 a {
@@ -34,8 +64,25 @@ button {
 
 .page {
   width: 100%;
-  min-height: 92vh;
+  min-height: 93vh;
   display: flex;
   justify-content: center;
-  background-color: #fff;
+  border-left: 2px solid $page-border;
+  border-right: 2px solid $page-border;
+  background-color: $page-bg;
+}
+
+.list {
+  background-color: $list-bg;
+  border: 1px solid $list-border-color;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+}
+
+.list li {
+  padding: 7px 15px;
+  border-top: 1px solid $list-border-color;
+
+  &:first-child {
+    border-top: none;
+  }
 }

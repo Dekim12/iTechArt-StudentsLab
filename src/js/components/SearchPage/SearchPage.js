@@ -1,8 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { SearchResult } from '../index';
 import './searchPage.scss';
 
-const SearchPage = () => (
-  <article className='page search-page'>this is a SearchPage</article>
-);
+const SearchPage = ({ data }) => {
+  return (
+    <section className='page search-page'>
+      <SearchResult beerItems={data} />
+    </section>
+  );
+};
+
+SearchPage.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+};
+
+SearchPage.defaultProps = {
+  data: [],
+};
 
 export default SearchPage;

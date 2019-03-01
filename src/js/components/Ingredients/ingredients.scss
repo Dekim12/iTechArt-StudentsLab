@@ -1,0 +1,37 @@
+@import '../../../style/vars';
+
+@media (max-width: 1550px) {
+  .beer-page .ingredients-wrapper {
+    margin: 20px 20px 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .beer-page .ingredients-wrapper {
+    margin: 15px 0 0;
+  }
+}
+
+.ingredients-wrapper {
+  min-width: 250px;
+  margin-top: 25px;
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ingredients {
+  font-style: oblique;
+  color: $ingredients-color;
+}
+
+.ingredients h4 {
+  margin: 0 0 5px 5px;
+}
+
+.ingredients span {
+  display: block;
+  padding-bottom: 3px;
+  font-size: 0.95rem;
+}
