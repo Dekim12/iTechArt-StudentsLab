@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SearchResult, Search } from '../index';
+import { BeerList, Search } from '../index';
 import './searchPage.scss';
 
 const SearchPage = ({ data, getBeerByName, resultSearchBeer }) => {
   return (
     <section className='page search-page'>
-      <Search setData={getBeerByName} />
-      <SearchResult beerItems={data} searchItems={resultSearchBeer} />
+      <Search onSearchPatternChange={getBeerByName} />
+      <BeerList visualData={resultSearchBeer || data} />
     </section>
   );
 };

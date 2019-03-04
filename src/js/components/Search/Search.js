@@ -8,7 +8,6 @@ class Search extends Component {
     super(props);
 
     this.searchQuery = '';
-    this.buttonContent = <i className='fa fa-search' aria-hidden='true' />;
   }
 
   addSearchQuery = event => {
@@ -17,10 +16,10 @@ class Search extends Component {
   };
 
   sendRequest = event => {
-    const { setData } = this.props;
+    const { onSearchPatternChange } = this.props;
     event.preventDefault();
     if (this.searchQuery) {
-      setData(this.searchQuery);
+      onSearchPatternChange(this.searchQuery);
     }
   };
 
@@ -35,18 +34,16 @@ class Search extends Component {
             onChange={this.addSearchQuery}
           />
         </form>
-        <Button
-          content={this.buttonContent}
-          className='button-for-search'
-          makeChanges={this.sendRequest}
-        />
+        <Button className='button-for-search' makeChanges={this.sendRequest}>
+          <i className='fa fa-search' aria-hidden='true' />
+        </Button>
       </article>
     );
   }
 }
 
 Search.propTypes = {
-  setData: PropTypes.func.isRequired,
+  onSearchPatternChange: PropTypes.func.isRequired,
 };
 
 export default Search;

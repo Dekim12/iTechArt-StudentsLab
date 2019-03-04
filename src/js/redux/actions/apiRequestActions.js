@@ -5,7 +5,7 @@ import {
   TOGGLE_LOADING,
 } from '../../constants';
 
-export const successApiRequest = data => ({
+export const setAllBeers = data => ({
   type: REQUEST_SUCCESS,
   payload: data,
 });

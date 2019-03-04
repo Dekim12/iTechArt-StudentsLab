@@ -5,7 +5,6 @@ import { Button } from '../index';
 import './beerLabel.scss';
 
 const BeerLabel = ({ data }) => {
-  const star = <i className='fa fa-star' aria-hidden='true' />;
   const url = data.image_url;
   const { name, tagline } = data;
 
@@ -20,7 +19,9 @@ const BeerLabel = ({ data }) => {
         <Link to={`/beer/${data.id}`} from='/search' className='open-page-link'>
           open
         </Link>
-        <Button className='favorite-btn' content={star} />
+        <Button className='favorite-btn'>
+          <i className='fa fa-star' aria-hidden='true' />
+        </Button>
       </div>
     </article>
   );

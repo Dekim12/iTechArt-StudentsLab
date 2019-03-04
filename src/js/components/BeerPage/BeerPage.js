@@ -18,8 +18,6 @@ const BeerPage = ({ isEmpty, isLoading, beer }) => {
     return <Spinner />;
   }
 
-  const star = <i className='fa fa-star' aria-hidden='true' />;
-
   return (
     <section className='page beer-page'>
       <article className='main-beer-info'>
@@ -49,7 +47,9 @@ const BeerPage = ({ isEmpty, isLoading, beer }) => {
             twist={beer.method.twist}
           />
         </div>
-        <Button className='fav-beer-btn' content={star} />
+        <Button className='fav-beer-btn'>
+          <i className='fa fa-star' aria-hidden='true' />
+        </Button>
       </article>
     </section>
   );
