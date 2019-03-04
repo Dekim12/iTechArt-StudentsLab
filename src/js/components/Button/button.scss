@@ -35,3 +35,25 @@
   font-size: 5rem;
   text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.7);
 }
+
+.button-for-search {
+  height: 49px;
+  margin: 15px;
+  padding: 7px 25px;
+  border: 1px solid #838383;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1.8em;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+  background-color: $search-btn-bg;
+  color: $search-btn-c;
+  transition: 0.1s background-color ease-in-out;
+
+  &:hover {
+    background-color: $search-btn-bg-h;
+  }
+
+  &:active {
+    background-color: $search-btn-bg-act;
+  }
+}
