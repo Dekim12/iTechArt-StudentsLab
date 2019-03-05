@@ -14,11 +14,11 @@ class BeerList extends React.Component {
   }
 
   loadMoreBeer = () => {
-    const { getNextPage, startLoading } = this.props;
+    const { getNextBeerPage, toggleNextPageLoading } = this.props;
     this.scrolling = false;
     this.currentPage += 1;
-    startLoading();
-    getNextPage(this.currentPage);
+    toggleNextPageLoading();
+    getNextBeerPage(this.currentPage);
   };
 
   observeScroll = () => {
@@ -41,8 +41,8 @@ class BeerList extends React.Component {
   };
 
   shouldComponentUpdate = nextProps => {
-    const { visualData } = this.props;
-    if (visualData.length < nextProps.visualData.length) {
+    const { data } = this.props;
+    if (data.length < nextProps.data.length) {
       this.scrolling = true;
     }
     return true;
@@ -52,14 +52,14 @@ class BeerList extends React.Component {
     items.map(elem => <BeerLabel data={elem} key={uuid()} />);
 
   render() {
-    const { visualData, pageLoading } = this.props;
+    const { data, nextPageLoading } = this.props;
 
     return (
       <article className='beer-list' ref={this.listRef}>
         <div className='beer-items-list'>
-          {visualData.length ? this.generateItemsList(visualData) : null}
+          {data.length ? this.generateItemsList(data) : null}
         </div>
-        {pageLoading ? (
+        {nextPageLoading ? (
           <div className='infinite-loading'>
             <div className='circle-child' />
             <div className='circle-child' />
@@ -72,14 +72,15 @@ class BeerList extends React.Component {
 }
 
 BeerList.propTypes = {
-  visualData: PropTypes.arrayOf(PropTypes.object),
-  getNextPage: PropTypes.func.isRequired,
-  pageLoading: PropTypes.bool,
+  data: PropTypes.arrayOf(PropTypes.object),
+  getNextBeerPage: PropTypes.func.isRequired,
+  toggleNextPageLoading: PropTypes.func.isRequired,
+  nextPageLoading: PropTypes.bool,
 };
 
 BeerList.defaultProps = {
-  visualData: [],
-  pageLoading: false,
+  data: [],
+  nextPageLoading: false,
 };
 
 export default BeerList;
