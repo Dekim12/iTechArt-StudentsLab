@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { asyncApiRequest } from '../../api';
+import { getAllBeers } from '../../api';
 import { App } from '../../components';
 
 const mapStateToProps = state => ({
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      asyncApiRequest,
+      getAllBeers,
     },
     dispatch
   );

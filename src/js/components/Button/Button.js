@@ -2,26 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './button.scss';
 
-const Button = ({ className = '', content = '', makeChanges }) => (
+const Button = ({ className = '', makeChanges, children }) => (
   <button
     className={className}
     onClick={makeChanges}
     onKeyPress={makeChanges}
     type='button'
   >
-    {content}
+    {children}
   </button>
 );
 
 Button.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   // makeChanges: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {
   className: '',
-  content: '',
+  children: '',
 };
 
 export default Button;

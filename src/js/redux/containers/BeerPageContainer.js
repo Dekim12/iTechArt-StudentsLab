@@ -6,7 +6,7 @@ import { selectionNecessaryData } from '../../appLogic';
 
 const mapStateToProps = state => {
   return {
-    beersData: state.apiRequestState.data,
+    beersData: state.apiRequestState.allBeers,
   };
 };
 
