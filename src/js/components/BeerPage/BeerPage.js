@@ -18,8 +18,6 @@ const BeerPage = ({ isEmpty, isLoading, beer }) => {
     return <Spinner />;
   }
 
-  const star = <i className='fa fa-star' aria-hidden='true' />;
-
   return (
     <section className='page beer-page'>
       <article className='main-beer-info'>

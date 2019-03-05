@@ -4,11 +4,14 @@ import {
   SET_BEER_BY_ID,
   SET_BEER_BY_NAME,
   TOGGLE_LOADING,
+  ADD_NEXT_BEER_PAGE,
+  NEXT_PAGE_LOADING,
 } from '../../constants';
 
 const initialState = {
   isLoading: true,
   allBeers: [],
+  nextPageLoading: false,
 };
 
 const apiRequestState = (state = initialState, action) => {
@@ -39,6 +42,18 @@ const apiRequestState = (state = initialState, action) => {
         resultSearchBeer: action.payload,
       };
     }
+    case ADD_NEXT_BEER_PAGE: {
+      const allBeers = _.unionBy(state.allBeers, action.payload, 'id');
+      const data = _.concat(state.data, action.payload);
+      return {
+        ...state,
+        allBeers,
+        data,
+        nextPageLoading: false,
+      };
+    }
+    case NEXT_PAGE_LOADING:
+      return { ...state, nextPageLoading: true };
     default:
       return state;
   }

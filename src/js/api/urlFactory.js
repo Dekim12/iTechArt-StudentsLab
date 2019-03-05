@@ -8,7 +8,11 @@ export const urlFactory = {
     return PUNK_API_CURRENT_ID + id;
   },
   produceUrlForAllBeers: () => {
-    const PUNK_API = 'https://api.punkapi.com/v2/beers?page=1&per_page=20';
+    const PUNK_API = 'https://api.punkapi.com/v2/beers?page=1';
     return PUNK_API;
+  },
+  produceUrlForNextBeerPage: number => {
+    const PUNK_API_CURRENT_PAGE = 'https://api.punkapi.com/v2/beers?page=';
+    return PUNK_API_CURRENT_PAGE + number;
   },
 };
