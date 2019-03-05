@@ -11,8 +11,8 @@ import './app.scss';
 
 class App extends Component {
   componentDidMount = () => {
-    const { asyncApiRequest } = this.props;
-    asyncApiRequest();
+    const { getAllBeers } = this.props;
+    getAllBeers();
   };
 
   render() {
@@ -37,7 +37,7 @@ class App extends Component {
 
 App.propTypes = {
   isLoading: PropTypes.bool,
-  asyncApiRequest: PropTypes.func.isRequired,
+  getAllBeers: PropTypes.func.isRequired,
 };
 
 App.defaultProps = {

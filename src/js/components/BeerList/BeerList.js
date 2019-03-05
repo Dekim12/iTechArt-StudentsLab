@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { BeerLabel } from '../index';
-import './searchResult.scss';
+import './beerList.scss';
 
-const SearchResult = ({ beerItems }) => {
+const BeerList = ({ visualData }) => {
   const generateItemsList = items =>
     items.map(elem => <BeerLabel data={elem} key={uuid()} />);
 
   return (
     <article className='search-result'>
-      {beerItems.length ? generateItemsList(beerItems) : null}
+      {visualData.length ? generateItemsList(visualData) : null}
     </article>
   );
 };
 
-SearchResult.propTypes = {
-  beerItems: PropTypes.arrayOf(PropTypes.object),
+BeerList.propTypes = {
+  visualData: PropTypes.arrayOf(PropTypes.object),
 };
 
-SearchResult.defaultProps = {
-  beerItems: [],
+BeerList.defaultProps = {
+  visualData: [],
 };
 
-export default SearchResult;
+export default BeerList;

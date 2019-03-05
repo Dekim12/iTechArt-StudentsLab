@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Ingredients,
   Method,
@@ -7,18 +8,13 @@ import {
   Button,
   Spinner,
 } from '../index';
-import { selectionNecessaryData } from '../../appLogic';
 import './beerPage.scss';
 
-const BeerPage = ({ beersData, match, getBeerById }) => {
-  if (!beersData || match.params.id < 1) {
+const BeerPage = ({ isEmpty, isLoading, beer }) => {
+  if (isEmpty) {
     return <section className='page beer-page' />;
   }
-
-  const star = <i className='fa fa-star' aria-hidden='true' />;
-  const beer = selectionNecessaryData(beersData, match.params.id);
-  if (!beer) {
-    getBeerById(match.params.id);
+  if (isLoading) {
     return <Spinner />;
   }
 
@@ -51,10 +47,24 @@ const BeerPage = ({ beersData, match, getBeerById }) => {
             twist={beer.method.twist}
           />
         </div>
-        <Button className='fav-beer-btn' content={star} />
+        <Button className='fav-beer-btn'>
+          <i className='fa fa-star' aria-hidden='true' />
+        </Button>
       </article>
     </section>
   );
+};
+
+BeerPage.propTypes = {
+  isEmpty: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  beer: PropTypes.objectOf(PropTypes.any),
+};
+
+BeerPage.defaultProps = {
+  isLoading: true,
+  isEmpty: true,
+  beer: {},
 };
 
 export default BeerPage;
