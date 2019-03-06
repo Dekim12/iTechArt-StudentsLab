@@ -15,15 +15,11 @@ class BeerList extends InfiniteScrollList {
   observeScroll = () => {
     const { getNextBeerPage, toggleNextPageLoading } = this.props;
     const lastBeer = this.listRef.current.lastChild;
-    super.observeScroll(lastBeer, getNextBeerPage, toggleNextPageLoading);
-  };
-
-  componentDidMount = () => {
-    this.addListener();
-  };
-
-  componentWillUnmount = () => {
-    this.removeListener();
+    super.isNeedToLoadMoreItems(
+      lastBeer,
+      getNextBeerPage,
+      toggleNextPageLoading
+    );
   };
 
   shouldComponentUpdate = nextProps => {
@@ -37,19 +33,14 @@ class BeerList extends InfiniteScrollList {
 
   render() {
     const { data, nextPageLoading } = this.props;
+    const scroll = super.isNeedScroll(nextPageLoading);
 
     return (
       <article className='beer-list'>
         <div className='beer-items-list' ref={this.listRef}>
           {data.length ? this.generateItemsList(data) : null}
         </div>
-        {nextPageLoading ? (
-          <div className='infinite-loading'>
-            <div className='circle-child' />
-            <div className='circle-child' />
-            <div className='circle-child' />
-          </div>
-        ) : null}
+        {scroll}
       </article>
     );
   }
