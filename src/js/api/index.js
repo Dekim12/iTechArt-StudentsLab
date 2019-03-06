@@ -4,6 +4,7 @@ import {
   setBeerById,
   setBeerByName,
   toggleLoading,
+  addNextBeerPage,
 } from '../redux/actions';
 import { urlFactory } from './urlFactory';
 
@@ -39,6 +40,18 @@ export const getBeerByName = name => {
     try {
       const response = await axios.get(url);
       dispatch(setBeerByName(response.data));
+    } catch (error) {
+      alert(error);
+    }
+  };
+};
+
+export const getNextBeerPage = number => {
+  const url = urlFactory.produceUrlForNextBeerPage(number);
+  return async dispatch => {
+    try {
+      const response = await axios.get(url);
+      dispatch(addNextBeerPage(response.data));
     } catch (error) {
       alert(error);
     }

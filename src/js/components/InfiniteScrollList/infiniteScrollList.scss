@@ -1,0 +1,35 @@
+@import '../../../style/vars';
+
+.infinite-loading {
+  width: 80px;
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+.circle-child {
+  width: 20px;
+  height: 20px;
+  background-color: $infinite-loading-color;
+  border-radius: 100%;
+  display: inline-block;
+  animation: page-loading 1.4s ease-in-out 0s infinite both;
+
+  &:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+}
+
+@keyframes page-loading {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

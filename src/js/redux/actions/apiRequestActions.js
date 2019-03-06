@@ -3,6 +3,8 @@ import {
   SET_BEER_BY_ID,
   SET_BEER_BY_NAME,
   TOGGLE_LOADING,
+  ADD_NEXT_BEER_PAGE,
+  NEXT_PAGE_LOADING,
 } from '../../constants';
 
 export const setAllBeers = data => ({
@@ -21,3 +23,10 @@ export const setBeerByName = data => ({
 });
 
 export const toggleLoading = () => ({ type: TOGGLE_LOADING });
+
+export const addNextBeerPage = data => ({
+  type: ADD_NEXT_BEER_PAGE,
+  payload: data,
+});
+
+export const toggleNextPageLoading = () => ({ type: NEXT_PAGE_LOADING });

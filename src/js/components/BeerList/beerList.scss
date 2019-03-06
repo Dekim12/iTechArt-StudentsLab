@@ -1,8 +1,14 @@
-@import '../../../style/vars';
-
-.search-result {
+.beer-list {
   width: 100%;
   height: 100%;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.beer-items-list {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

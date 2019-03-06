@@ -5,7 +5,6 @@ import { SearchPage } from '../../components/index';
 
 const mapStateToProps = state => {
   return {
-    data: state.apiRequestState.data,
     resultSearchBeer: state.apiRequestState.resultSearchBeer,
   };
 };
