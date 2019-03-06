@@ -1,50 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import InfiniteScrollList from '../InfiniteScrollList/InfiniteScrollList';
 import { BeerLabel } from '../index';
 import './beerList.scss';
 
-class BeerList extends React.Component {
-  constructor(props) {
-    super(props);
+class BeerList extends InfiniteScrollList {
+  constructor() {
+    super();
 
-    this.currentPage = 1;
-    this.scrolling = false;
     this.listRef = React.createRef();
   }
 
-  loadMoreBeer = () => {
-    const { getNextBeerPage, toggleNextPageLoading } = this.props;
-    this.scrolling = false;
-    this.currentPage += 1;
-    toggleNextPageLoading();
-    getNextBeerPage(this.currentPage);
-  };
-
   observeScroll = () => {
+    const { getNextBeerPage, toggleNextPageLoading } = this.props;
     const lastBeer = this.listRef.current.lastChild;
-    const lastBeerOffset = lastBeer.offsetTop + lastBeer.clientHeight;
-    const pageOffset = window.pageYOffset + window.innerHeight;
-    if (pageOffset > lastBeerOffset) {
-      if (this.scrolling) {
-        this.loadMoreBeer();
-      }
-    }
+    super.observeScroll(lastBeer, getNextBeerPage, toggleNextPageLoading);
   };
 
   componentDidMount = () => {
-    window.addEventListener('scroll', this.observeScroll);
+    this.addListener();
   };
 
   componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.observeScroll);
+    this.removeListener();
   };
 
   shouldComponentUpdate = nextProps => {
     const { data } = this.props;
-    if (data.length < nextProps.data.length) {
-      this.scrolling = true;
-    }
+    super.checkNewProps(data, nextProps.data);
     return true;
   };
 
@@ -55,8 +39,8 @@ class BeerList extends React.Component {
     const { data, nextPageLoading } = this.props;
 
     return (
-      <article className='beer-list' ref={this.listRef}>
-        <div className='beer-items-list'>
+      <article className='beer-list'>
+        <div className='beer-items-list' ref={this.listRef}>
           {data.length ? this.generateItemsList(data) : null}
         </div>
         {nextPageLoading ? (

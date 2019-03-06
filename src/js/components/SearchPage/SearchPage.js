@@ -4,18 +4,16 @@ import { BeerListContainer } from '../../redux/containers';
 import { Search, SearchBeerList } from '../index';
 import './searchPage.scss';
 
-const SearchPage = ({ getBeerByName, resultSearchBeer }) => {
-  return (
-    <section className='page search-page'>
-      <Search onSearchPatternChange={getBeerByName} />
-      {resultSearchBeer ? (
-        <SearchBeerList renderData={resultSearchBeer} />
-      ) : (
-        <BeerListContainer />
-      )}
-    </section>
-  );
-};
+const SearchPage = ({ getBeerByName, resultSearchBeer }) => (
+  <section className='page search-page'>
+    <Search onSearchPatternChange={getBeerByName} />
+    {resultSearchBeer ? (
+      <SearchBeerList renderData={resultSearchBeer} />
+    ) : (
+      <BeerListContainer />
+    )}
+  </section>
+);
 
 SearchPage.propTypes = {
   getBeerByName: PropTypes.func.isRequired,
