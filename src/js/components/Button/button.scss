@@ -19,6 +19,10 @@
   &:hover {
     color: $label-btn_h;
   }
+
+  &.favorite-checked {
+    color: $label-btn_h;
+  }
 }
 
 .favorite-btn {

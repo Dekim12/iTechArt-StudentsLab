@@ -6,6 +6,7 @@ import './searchPage.scss';
 
 const SearchPage = ({ getBeerByName, resultSearchBeer }) => (
   <section className='page search-page'>
+    <h1>Punk IPA beer</h1>
     <Search onSearchPatternChange={getBeerByName} />
     {resultSearchBeer ? (
       <SearchBeerList renderData={resultSearchBeer} />

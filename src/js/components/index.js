@@ -15,3 +15,6 @@ export { default as FoodPairing } from './FoodPairing/FoodPairing';
 export { default as Properties } from './Properties/Properties';
 export { default as Search } from './Search/Search';
 export { default as SearchBeerList } from './SearchBeerList/SearchBeerList';
+export {
+  default as FavoriteBeerList,
+} from './FavoriteBeerList/FavoriteBeerList';

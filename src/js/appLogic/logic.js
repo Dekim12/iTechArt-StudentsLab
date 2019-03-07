@@ -21,3 +21,44 @@ export const selectionNecessaryData = (data, beerId) => {
     id: beer.id,
   };
 };
+
+const initializeLocalStorage = () => {
+  const favoriteList = JSON.parse(localStorage.getItem('favoriteList'));
+  if (!favoriteList) {
+    return [];
+  }
+
+  return favoriteList;
+};
+
+export const addToLocalStorage = id => {
+  let favoriteList = initializeLocalStorage(id);
+  const itemIndex = _.indexOf(favoriteList, id);
+  if (itemIndex < 0) {
+    favoriteList.push(id);
+    localStorage.setItem('favoriteList', JSON.stringify(favoriteList));
+    return true;
+  }
+
+  favoriteList = _.without(favoriteList, id);
+  localStorage.setItem('favoriteList', JSON.stringify(favoriteList));
+  return false;
+};
+
+export const beerIsFavorite = id => {
+  const favoriteList = JSON.parse(localStorage.getItem('favoriteList'));
+  const itemIndex = _.indexOf(favoriteList, id);
+  if (itemIndex < 0) {
+    return false;
+  }
+  return true;
+};
+
+export const findMissingItems = (allItems, necessaryItems) =>
+  necessaryItems.filter(item => {
+    const index = _.findIndex(allItems, obj => obj.id === item);
+    if (index === -1) {
+      return item;
+    }
+    return null;
+  });

@@ -29,7 +29,15 @@ class BeerList extends InfiniteScrollList {
   };
 
   generateItemsList = items =>
-    items.map(elem => <BeerLabel data={elem} key={uuid()} />);
+    items.map(elem => (
+      <BeerLabel
+        url={elem.image_url}
+        name={elem.name}
+        tagline={elem.tagline}
+        id={elem.id}
+        key={uuid()}
+      />
+    ));
 
   render() {
     const { data, nextPageLoading } = this.props;

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getBeerById } from '../../api';
 import { BeerPage } from '../../components';
-import { selectionNecessaryData } from '../../appLogic';
+import { selectionNecessaryData, beerIsFavorite } from '../../appLogic';
 
 const mapStateToProps = state => {
   return {
@@ -33,7 +33,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return { isEmpty: false, isLoading: true };
   }
 
-  return { isEmpty: false, isLoading: false, beer };
+  const isChecked = beerIsFavorite(beer.id);
+
+  return { isEmpty: false, isLoading: false, beer, isChecked };
 };
 
 export default connect(

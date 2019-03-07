@@ -6,6 +6,7 @@ import {
   TOGGLE_LOADING,
   ADD_NEXT_BEER_PAGE,
   NEXT_PAGE_LOADING,
+  SET_MISSING_BEER,
 } from '../../constants';
 
 const initialState = {
@@ -54,6 +55,10 @@ const apiRequestState = (state = initialState, action) => {
     }
     case NEXT_PAGE_LOADING:
       return { ...state, nextPageLoading: true };
+    case SET_MISSING_BEER: {
+      const allBeers = _.unionBy(state.allBeers, action.payload, 'id');
+      return { ...state, allBeers, isLoading: false };
+    }
     default:
       return state;
   }

@@ -16,7 +16,7 @@ const Button = ({ className = '', makeChanges, children }) => (
 Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  // makeChanges: PropTypes.func.isRequired,
+  makeChanges: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {

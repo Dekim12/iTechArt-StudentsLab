@@ -5,6 +5,7 @@ import {
   TOGGLE_LOADING,
   ADD_NEXT_BEER_PAGE,
   NEXT_PAGE_LOADING,
+  SET_MISSING_BEER,
 } from '../../constants';
 
 export const setAllBeers = data => ({
@@ -30,3 +31,8 @@ export const addNextBeerPage = data => ({
 });
 
 export const toggleNextPageLoading = () => ({ type: NEXT_PAGE_LOADING });
+
+export const setMissingFavoriteBeer = data => ({
+  type: SET_MISSING_BEER,
+  payload: data,
+});
