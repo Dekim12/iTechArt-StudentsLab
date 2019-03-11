@@ -5,7 +5,11 @@ import './favoritesPage.scss';
 
 const FavoritesPage = ({ allBeers, favoriteBeer, isEmpty }) => {
   if (isEmpty) {
-    return <section className='page favorites-page' />;
+    return (
+      <section className='page favorites-page'>
+        <h1>Favorite beer</h1>
+      </section>
+    );
   }
 
   return (

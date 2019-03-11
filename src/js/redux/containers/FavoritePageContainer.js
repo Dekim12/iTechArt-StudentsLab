@@ -30,7 +30,9 @@ const mergeProps = (stateProps, dispatchProps) => {
 
   if (missingBeers.length) {
     dispatchProps.getFavoriteBeerById(missingBeers);
+    return { allBeers, favoriteBeer, isEmpty: true };
   }
+
   return { allBeers, favoriteBeer, isEmpty: false };
 };
 
