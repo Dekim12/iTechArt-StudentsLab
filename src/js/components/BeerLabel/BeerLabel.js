@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from '../index';
-import { addToLocalStorage, beerIsFavorite } from '../../appLogic';
+import { checkExistenceInLocalStorage, beerIsFavorite } from '../../appLogic';
 import { FAVORITE_CHECKED } from '../../constants';
 import './beerLabel.scss';
 
@@ -13,13 +13,8 @@ class BeerLabel extends React.Component {
 
   addToFavorite = () => {
     const { id } = this.props;
-    const isFavorite = addToLocalStorage(id);
-
-    if (isFavorite) {
-      this.setState({ isChecked: true });
-    } else {
-      this.setState({ isChecked: false });
-    }
+    const isFavorite = checkExistenceInLocalStorage(id);
+    this.setState({ isChecked: isFavorite });
   };
 
   render() {

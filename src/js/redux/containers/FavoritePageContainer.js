@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFavoriteBeerById } from '../../api';
 import { FavoritesPage } from '../../components';
-import { findMissingItems } from '../../appLogic';
+import { findMissingItems, getDataFromLocalStorage } from '../../appLogic';
 
 const mapStateToProps = state => {
   return {
@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch =>
 
 const mergeProps = (stateProps, dispatchProps) => {
   const { allBeers, isLoading } = stateProps;
-  const favoriteBeers = JSON.parse(localStorage.getItem('favoriteList'));
+  const favoriteBeers = getDataFromLocalStorage();
   const missingBeers = findMissingItems(allBeers, favoriteBeers);
 
   if (allBeers.length && !isLoading) {

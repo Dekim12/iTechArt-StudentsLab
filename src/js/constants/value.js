@@ -12,3 +12,5 @@ export const BEER_PROPERTY = {
     abbreviation: 'EBC',
   },
 };
+
+export const LOCAL_STORAGE_ITEM = 'favoriteList';

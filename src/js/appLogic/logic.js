@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { LOCAL_STORAGE_ITEM } from '../constants';
 
 export const selectionNecessaryData = (data, beerId) => {
   const beer = _.find(data, item => item.id === +beerId);
@@ -21,9 +22,15 @@ export const selectionNecessaryData = (data, beerId) => {
     id: beer.id,
   };
 };
+export const getDataFromLocalStorage = () =>
+  JSON.parse(localStorage.getItem(LOCAL_STORAGE_ITEM));
+
+export const setDataToLocalStorage = data => {
+  localStorage.setItem(LOCAL_STORAGE_ITEM, JSON.stringify(data));
+};
 
 const initializeLocalStorage = () => {
-  const favoriteList = JSON.parse(localStorage.getItem('favoriteList'));
+  const favoriteList = getDataFromLocalStorage();
   if (!favoriteList) {
     return [];
   }
@@ -31,22 +38,22 @@ const initializeLocalStorage = () => {
   return favoriteList;
 };
 
-export const addToLocalStorage = id => {
+export const checkExistenceInLocalStorage = id => {
   let favoriteList = initializeLocalStorage(id);
   const itemIndex = _.indexOf(favoriteList, id);
   if (itemIndex < 0) {
     favoriteList.push(id);
-    localStorage.setItem('favoriteList', JSON.stringify(favoriteList));
+    setDataToLocalStorage(favoriteList);
     return true;
   }
 
   favoriteList = _.without(favoriteList, id);
-  localStorage.setItem('favoriteList', JSON.stringify(favoriteList));
+  setDataToLocalStorage(favoriteList);
   return false;
 };
 
 export const beerIsFavorite = id => {
-  const favoriteList = JSON.parse(localStorage.getItem('favoriteList'));
+  const favoriteList = getDataFromLocalStorage();
   const itemIndex = _.indexOf(favoriteList, id);
   if (itemIndex < 0) {
     return false;
@@ -62,3 +69,6 @@ export const findMissingItems = (allItems, necessaryItems) =>
     }
     return null;
   });
+
+export const dataArraysAreEqual = (previousArr, nextArr) =>
+  _.isEqual(_.sortBy(previousArr, ['id']), _.sortBy(nextArr, ['id']));

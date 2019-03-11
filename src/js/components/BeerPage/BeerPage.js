@@ -8,7 +8,7 @@ import {
   Button,
   Spinner,
 } from '../index';
-import { addToLocalStorage } from '../../appLogic';
+import { checkExistenceInLocalStorage } from '../../appLogic';
 import { FAVORITE_CHECKED } from '../../constants';
 import './beerPage.scss';
 
@@ -19,13 +19,8 @@ class BeerPage extends React.Component {
 
   addToFavorite = () => {
     const { id } = this.props.beer;
-    const isFavorite = addToLocalStorage(id);
-
-    if (isFavorite) {
-      this.setState({ isChecked: true });
-    } else {
-      this.setState({ isChecked: false });
-    }
+    const isFavorite = checkExistenceInLocalStorage(id);
+    this.setState({ isChecked: isFavorite });
   };
 
   render() {
