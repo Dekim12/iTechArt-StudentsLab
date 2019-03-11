@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFavoriteBeerById } from '../../api';
 import { FavoritesPage } from '../../components';
-import { findMissingItems, getDataFromLocalStorage } from '../../appLogic';
+import { findMissingItems } from '../../appLogic';
 
 const mapStateToProps = state => {
   return {
     allBeers: state.apiRequestState.allBeers,
     isLoading: state.apiRequestState.isLoading,
+    favoriteBeer: state.favoriteBeerState.favoriteBeer,
   };
 };
 
@@ -20,17 +21,17 @@ const mapDispatchToProps = dispatch =>
   );
 
 const mergeProps = (stateProps, dispatchProps) => {
-  const { allBeers, isLoading } = stateProps;
-  const favoriteBeers = getDataFromLocalStorage();
-  const missingBeers = findMissingItems(allBeers, favoriteBeers);
+  const { allBeers, isLoading, favoriteBeer } = stateProps;
+  const missingBeers = findMissingItems(allBeers, favoriteBeer);
 
-  if (allBeers.length && !isLoading) {
-    if (missingBeers.length) {
-      dispatchProps.getFavoriteBeerById(missingBeers);
-    }
+  if (!favoriteBeer.length || !allBeers.length || isLoading) {
+    return { ...stateProps, favoriteBeer, isEmpty: true };
   }
 
-  return { ...stateProps, favoriteBeers };
+  if (missingBeers.length) {
+    dispatchProps.getFavoriteBeerById(missingBeers);
+  }
+  return { allBeers, favoriteBeer, isEmpty: false };
 };
 
 export default connect(

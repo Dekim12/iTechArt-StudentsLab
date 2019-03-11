@@ -1,38 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FavoriteBeerList } from '../index';
-import { dataArraysAreEqual } from '../../appLogic';
 import './favoritesPage.scss';
 
-class FavoritesPage extends React.Component {
-  shouldComponentUpdate = nextProps => {
-    const { allBeers, favoriteBeers } = this.props;
-    return !(
-      dataArraysAreEqual(favoriteBeers, nextProps.favoriteBeers) &&
-      dataArraysAreEqual(allBeers, nextProps.allBeers)
-    );
-  };
-
-  render() {
-    const { allBeers, favoriteBeers } = this.props;
-
-    return (
-      <section className='page favorites-page'>
-        <h1>Favorite beer</h1>
-        <FavoriteBeerList favoriteBeers={favoriteBeers} allBeers={allBeers} />
-      </section>
-    );
+const FavoritesPage = ({ allBeers, favoriteBeer, isEmpty }) => {
+  if (isEmpty) {
+    return <section className='page favorites-page' />;
   }
-}
+
+  return (
+    <section className='page favorites-page'>
+      <h1>Favorite beer</h1>
+      <FavoriteBeerList favoriteBeers={favoriteBeer} allBeers={allBeers} />
+    </section>
+  );
+};
 
 FavoritesPage.propTypes = {
-  favoriteBeers: PropTypes.arrayOf(PropTypes.number),
+  favoriteBeer: PropTypes.arrayOf(PropTypes.number),
   allBeers: PropTypes.arrayOf(PropTypes.any),
+  isEmpty: PropTypes.bool,
 };
 
 FavoritesPage.defaultProps = {
-  favoriteBeers: [],
+  favoriteBeer: [],
   allBeers: [],
+  isEmpty: true,
 };
 
 export default FavoritesPage;

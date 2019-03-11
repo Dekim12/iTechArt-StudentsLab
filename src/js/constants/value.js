@@ -13,4 +13,4 @@ export const BEER_PROPERTY = {
   },
 };
 
-export const LOCAL_STORAGE_ITEM = 'favoriteList';
+export const LOCAL_STORAGE_ITEMS = 'favoriteList';
