@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFavoriteBeerById } from '../../api';
+import { changeFavoriteList } from '../actions';
 import { FavoritesPage } from '../../components';
 import { findMissingItems } from '../../appLogic';
 
@@ -16,6 +17,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getFavoriteBeerById,
+      changeFavoriteList,
     },
     dispatch
   );
@@ -25,15 +27,30 @@ const mergeProps = (stateProps, dispatchProps) => {
   const missingBeers = findMissingItems(allBeers, favoriteBeer);
 
   if (!favoriteBeer.length || !allBeers.length || isLoading) {
-    return { ...stateProps, favoriteBeer, isEmpty: true };
+    return {
+      ...stateProps,
+      favoriteBeer,
+      isEmpty: true,
+      changeFavorite: dispatchProps.changeFavoriteList,
+    };
   }
 
   if (missingBeers.length) {
     dispatchProps.getFavoriteBeerById(missingBeers);
-    return { allBeers, favoriteBeer, isEmpty: true };
+    return {
+      allBeers,
+      favoriteBeer,
+      isEmpty: true,
+      changeFavorite: dispatchProps.changeFavoriteList,
+    };
   }
 
-  return { allBeers, favoriteBeer, isEmpty: false };
+  return {
+    allBeers,
+    favoriteBeer,
+    isEmpty: false,
+    changeFavorite: dispatchProps.changeFavoriteList,
+  };
 };
 
 export default connect(

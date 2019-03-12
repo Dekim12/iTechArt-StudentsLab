@@ -9,6 +9,7 @@ import {
   Spinner,
 } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
+import { defineClassName } from '../../appLogic';
 import './beerPage.scss';
 
 const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
@@ -49,7 +50,10 @@ const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
           />
         </div>
         <Button
-          className={`fav-beer-btn ${isFavorite ? FAVORITE_CHECKED : ''}`}
+          className={`fav-beer-btn ${defineClassName(
+            isFavorite,
+            FAVORITE_CHECKED
+          )}`}
           makeChanges={changeFavorite}
         >
           <i className='fa fa-star' aria-hidden='true' />

@@ -38,3 +38,8 @@ export const findMissingItems = (allItems, necessaryItems) =>
     }
     return null;
   });
+
+export const findFavoriteItem = (allItems, id) => {
+  const index = _.findIndex(allItems, obj => obj.id === id);
+  return allItems[index];
+};

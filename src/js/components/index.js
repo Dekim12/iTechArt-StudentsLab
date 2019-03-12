@@ -18,3 +18,6 @@ export { default as SearchBeerList } from './SearchBeerList/SearchBeerList';
 export {
   default as FavoriteBeerList,
 } from './FavoriteBeerList/FavoriteBeerList';
+export {
+  default as FavoriteBeerLabel,
+} from './FavoriteBeerLabel/FavoriteBeerLabel';
