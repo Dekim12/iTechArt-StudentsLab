@@ -8,6 +8,7 @@
         "extensions": [".js", ".jsx"]
       }
     ],
+    "react/destructuring-assignment": "never",
     "no-alert": "off",
     "class-methods-use-this": "off",
     "jsx-a11y/interactive-supports-focus": 0,

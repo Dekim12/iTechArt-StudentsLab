@@ -8,9 +8,10 @@ import {
   Button,
   Spinner,
 } from '../index';
+import { FAVORITE_CHECKED } from '../../constants';
 import './beerPage.scss';
 
-const BeerPage = ({ isEmpty, isLoading, beer }) => {
+const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
   if (isEmpty) {
     return <section className='page beer-page' />;
   }
@@ -47,7 +48,10 @@ const BeerPage = ({ isEmpty, isLoading, beer }) => {
             twist={beer.method.twist}
           />
         </div>
-        <Button className='fav-beer-btn'>
+        <Button
+          className={`fav-beer-btn ${isFavorite ? FAVORITE_CHECKED : ''}`}
+          makeChanges={changeFavorite}
+        >
           <i className='fa fa-star' aria-hidden='true' />
         </Button>
       </article>
@@ -59,12 +63,15 @@ BeerPage.propTypes = {
   isEmpty: PropTypes.bool,
   isLoading: PropTypes.bool,
   beer: PropTypes.objectOf(PropTypes.any),
+  isFavorite: PropTypes.bool,
+  changeFavorite: PropTypes.func.isRequired,
 };
 
 BeerPage.defaultProps = {
   isLoading: true,
   isEmpty: true,
   beer: {},
+  isFavorite: false,
 };
 
 export default BeerPage;

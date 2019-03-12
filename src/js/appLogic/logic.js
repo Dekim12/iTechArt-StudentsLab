@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { LOCAL_STORAGE_ITEMS } from '../constants';
 
 export const selectionNecessaryData = (data, beerId) => {
   const beer = _.find(data, item => item.id === +beerId);
@@ -21,3 +22,19 @@ export const selectionNecessaryData = (data, beerId) => {
     id: beer.id,
   };
 };
+
+export const getDataFromLocalStorage = () =>
+  JSON.parse(localStorage.getItem(LOCAL_STORAGE_ITEMS));
+
+export const setDataToLocalStorage = data => {
+  localStorage.setItem(LOCAL_STORAGE_ITEMS, JSON.stringify(data));
+};
+
+export const findMissingItems = (allItems, necessaryItems) =>
+  necessaryItems.filter(item => {
+    const index = _.findIndex(allItems, obj => obj.id === item);
+    if (index === -1) {
+      return item;
+    }
+    return null;
+  });

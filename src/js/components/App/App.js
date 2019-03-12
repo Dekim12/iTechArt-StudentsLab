@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { FavoritesPage, Header, Spinner } from '../index';
+import { Header, Spinner } from '../index';
 import {
   MenuContainer,
   SearchPageContainer,
   BeerPageContainer,
+  FavoritePageContainer,
 } from '../../redux/containers';
 import './app.scss';
 
@@ -24,7 +25,7 @@ class App extends Component {
           <Header />
           <main className='content'>
             <Route exact path='/' component={SearchPageContainer} />
-            <Route path='/favorite' component={FavoritesPage} />
+            <Route path='/favorite' component={FavoritePageContainer} />
             <Route path='/beer/:id' component={BeerPageContainer} />
           </main>
           <MenuContainer />

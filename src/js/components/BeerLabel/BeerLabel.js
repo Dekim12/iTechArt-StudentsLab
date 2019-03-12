@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from '../index';
+import { FAVORITE_CHECKED } from '../../constants';
 import './beerLabel.scss';
 
-const BeerLabel = ({ data }) => {
-  const url = data.image_url;
-  const { name, tagline } = data;
+const BeerLabel = ({ ownProps, isFavorite, changeFavorite }) => {
+  const { name, url, tagline, id } = ownProps;
 
   return (
     <article className='beer-label'>
@@ -16,10 +16,13 @@ const BeerLabel = ({ data }) => {
         <p>{tagline}</p>
       </div>
       <div className='button-wrapper'>
-        <Link to={`/beer/${data.id}`} from='/search' className='open-page-link'>
+        <Link to={`/beer/${id}`} from='/search' className='open-page-link'>
           open
         </Link>
-        <Button className='favorite-btn'>
+        <Button
+          className={`favorite-btn ${isFavorite ? FAVORITE_CHECKED : ''}`}
+          makeChanges={changeFavorite}
+        >
           <i className='fa fa-star' aria-hidden='true' />
         </Button>
       </div>
@@ -28,11 +31,14 @@ const BeerLabel = ({ data }) => {
 };
 
 BeerLabel.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any),
+  ownProps: PropTypes.objectOf(PropTypes.any),
+  isFavorite: PropTypes.bool,
+  changeFavorite: PropTypes.func.isRequired,
 };
 
 BeerLabel.defaultProps = {
-  data: {},
+  ownProps: {},
+  isFavorite: false,
 };
 
 export default BeerLabel;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import InfiniteScrollList from '../InfiniteScrollList/InfiniteScrollList';
-import { BeerLabel } from '../index';
+import { BeerLabelContainer } from '../../redux/containers';
 import './beerList.scss';
 
 class BeerList extends InfiniteScrollList {
@@ -29,7 +29,15 @@ class BeerList extends InfiniteScrollList {
   };
 
   generateItemsList = items =>
-    items.map(elem => <BeerLabel data={elem} key={uuid()} />);
+    items.map(elem => (
+      <BeerLabelContainer
+        url={elem.image_url}
+        name={elem.name}
+        tagline={elem.tagline}
+        id={elem.id}
+        key={uuid()}
+      />
+    ));
 
   render() {
     const { data, nextPageLoading } = this.props;

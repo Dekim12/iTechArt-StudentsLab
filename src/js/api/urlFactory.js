@@ -15,4 +15,9 @@ export const urlFactory = {
     const PUNK_API_CURRENT_PAGE = 'https://api.punkapi.com/v2/beers?page=';
     return PUNK_API_CURRENT_PAGE + number;
   },
+  produceUrlForFavoriteBeer: missingBeer => {
+    const PUNK_API_IDS = 'https://api.punkapi.com/v2/beers?ids=';
+    const idsString = missingBeer.reduce((str, id) => str.concat(id, '|'), '');
+    return PUNK_API_IDS + idsString;
+  },
 };
