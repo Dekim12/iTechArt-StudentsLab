@@ -1,0 +1,36 @@
+@import '../../../style/vars';
+
+@media (max-width: 600px) {
+  button.to-up-btn {
+    width: 40px;
+    height: 40px;
+    left: 10px;
+    bottom: 10px;
+    padding-top: 3px;
+    line-height: 40px;
+  }
+}
+
+.to-up-btn {
+  position: fixed;
+  display: none;
+  width: 50px;
+  height: 50px;
+  left: 15px;
+  bottom: 15px;
+  padding-top: 3px;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 2px 8px 6px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  background-color: $to-up-btn-bg;
+  transition: 0.2s color ease-in-out;
+
+  &:hover {
+    color: $to-up-btn-c-h;
+  }
+}
+
+.to-up-btn.visible {
+  display: block;
+}

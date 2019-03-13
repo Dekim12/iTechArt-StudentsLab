@@ -22,3 +22,4 @@ export {
   default as FavoriteBeerLabel,
 } from './FavoriteBeerLabel/FavoriteBeerLabel';
 export { default as Pagination } from './Pagination/Pagination';
+export { default as ToUpButton } from './ToUpButton/ToUpButton';

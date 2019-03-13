@@ -1,6 +1,16 @@
 @import 'reset';
 @import 'vars';
 
+@media (max-width: 600px) {
+  .page h1 {
+    font-size: 2.7rem;
+  }
+
+  .page h2 {
+    font-size: 1.6rem;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

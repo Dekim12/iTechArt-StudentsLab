@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Header, Spinner } from '../index';
+import { Header, Spinner, ToUpButton } from '../index';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import {
   MenuContainer,
@@ -32,6 +32,7 @@ class App extends Component {
             </main>
             <MenuContainer />
             <Spinner indicator={isLoading} />
+            <ToUpButton />
           </section>
         </ScrollToTop>
       </BrowserRouter>
