@@ -28,7 +28,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
   if (!favoriteBeer.length || !allBeers.length || isLoading) {
     return {
-      ...stateProps,
+      allBeers,
       favoriteBeer,
       isEmpty: true,
       changeFavorite: dispatchProps.changeFavoriteList,

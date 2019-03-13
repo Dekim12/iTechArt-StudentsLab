@@ -5,6 +5,7 @@ import { Pagination, FavoriteBeerList } from '../index';
 import {
   defineCountPaginationPages,
   selectFavoriteByPage,
+  redirectPaginationPage,
 } from '../../appLogic';
 import './favoritesPage.scss';
 
@@ -29,11 +30,8 @@ const FavoritesPage = ({
     changeFavorite(id, favoriteBeer);
   };
 
-  if (paginationPageCount < routingPage) {
-    const newUrl = `/favorite/${paginationPageCount}`;
-    history.push(newUrl);
-  } else if (routingPage < 1) {
-    history.push('/favorite/1');
+  if (paginationPageCount < routingPage || routingPage < 1) {
+    redirectPaginationPage(paginationPageCount, routingPage, history);
   }
 
   return (

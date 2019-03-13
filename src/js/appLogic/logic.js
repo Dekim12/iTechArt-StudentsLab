@@ -51,3 +51,12 @@ export const selectFavoriteByPage = (favoriteBeer, currentPage) => {
   const from = to - COUNT_FAVORITE_ITEMS;
   return favoriteBeer.slice(from, to);
 };
+
+export const redirectPaginationPage = (pageCount, currentPage, history) => {
+  if (currentPage < 1) {
+    history.push('/favorite/1');
+  } else {
+    const newUrl = `/favorite/${pageCount}`;
+    history.push(newUrl);
+  }
+};
