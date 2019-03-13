@@ -1,0 +1,74 @@
+@import '../../../style/vars';
+
+.pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.pagination {
+  display: flex;
+  margin: 10px 0 35px;
+}
+
+.pagination li {
+  width: 42px;
+  height: 42px;
+  background-color: $pagination-bg;
+  color: $pagination-color;
+  line-height: 42px;
+  text-align: center;
+  font-size: 1.3rem;
+
+  &:first-child {
+    width: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &:last-child {
+    width: 40px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &:not(:last-child) {
+    border-right: 1px solid $pagination-border-c;
+  }
+
+  &:hover {
+    color: $pagination-color-h;
+    background-color: $pagination-bg-h;
+  }
+}
+
+.pagination a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  font-size: 1.3rem;
+}
+
+.pagination .active,
+.pagination .active:hover {
+  color: $pagination-active-color;
+  background-color: $pagination-active-bg;
+}
+
+.pagination .disabled {
+  color: $pagination-disabled-color;
+
+  &:hover {
+    color: $pagination-disabled-color;
+    background-color: $pagination-bg;
+  }
+}
+
+.active a,
+.disabled a {
+  cursor: default;
+}

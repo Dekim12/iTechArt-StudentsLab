@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-const mergeProps = (stateProps, dispatchProps) => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { allBeers, isLoading, favoriteBeer } = stateProps;
   const missingBeers = findMissingItems(allBeers, favoriteBeer);
 
@@ -50,6 +50,7 @@ const mergeProps = (stateProps, dispatchProps) => {
     favoriteBeer,
     isEmpty: false,
     changeFavorite: dispatchProps.changeFavoriteList,
+    routingPage: +ownProps.match.params.id,
   };
 };
 

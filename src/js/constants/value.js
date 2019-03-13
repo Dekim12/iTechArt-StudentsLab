@@ -14,3 +14,5 @@ export const BEER_PROPERTY = {
 };
 
 export const LOCAL_STORAGE_ITEMS = 'favoriteList';
+
+export const COUNT_FAVORITE_ITEMS = 5;

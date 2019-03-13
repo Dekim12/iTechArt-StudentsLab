@@ -1,9 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FavoriteBeerList } from '../index';
+import { withRouter } from 'react-router-dom';
+import { Pagination, FavoriteBeerList } from '../index';
+import {
+  defineCountPaginationPages,
+  selectFavoriteByPage,
+} from '../../appLogic';
 import './favoritesPage.scss';
 
-const FavoritesPage = ({ allBeers, favoriteBeer, isEmpty, changeFavorite }) => {
+const FavoritesPage = ({
+  allBeers,
+  favoriteBeer,
+  isEmpty,
+  changeFavorite,
+  routingPage,
+  history,
+}) => {
   if (isEmpty) {
     return (
       <section className='page favorites-page'>
@@ -12,14 +24,29 @@ const FavoritesPage = ({ allBeers, favoriteBeer, isEmpty, changeFavorite }) => {
     );
   }
 
+  const paginationPageCount = defineCountPaginationPages(favoriteBeer);
+  const deleteFavoriteItem = id => {
+    changeFavorite(id, favoriteBeer);
+  };
+
+  if (paginationPageCount < routingPage) {
+    const newUrl = `/favorite/${paginationPageCount}`;
+    history.push(newUrl);
+  } else if (routingPage < 1) {
+    history.push('/favorite/1');
+  }
+
   return (
     <section className='page favorites-page'>
       <h1>Favorite beer</h1>
       <FavoriteBeerList
-        favoriteBeers={favoriteBeer}
-        allBeers={allBeers}
-        changeFavorite={changeFavorite}
+        favoriteBeers={selectFavoriteByPage(favoriteBeer, routingPage)}
+        beers={allBeers}
+        deleteFavoriteItem={deleteFavoriteItem}
       />
+      {paginationPageCount === 1 ? null : (
+        <Pagination pageCount={paginationPageCount} currentPage={routingPage} />
+      )}
     </section>
   );
 };
@@ -29,12 +56,16 @@ FavoritesPage.propTypes = {
   allBeers: PropTypes.arrayOf(PropTypes.any),
   isEmpty: PropTypes.bool,
   changeFavorite: PropTypes.func.isRequired,
+  routingPage: PropTypes.number,
+  history: PropTypes.objectOf(PropTypes.any),
 };
 
 FavoritesPage.defaultProps = {
   favoriteBeer: [],
   allBeers: [],
   isEmpty: true,
+  routingPage: 1,
+  history: {},
 };
 
-export default FavoritesPage;
+export default withRouter(FavoritesPage);

@@ -21,3 +21,4 @@ export {
 export {
   default as FavoriteBeerLabel,
 } from './FavoriteBeerLabel/FavoriteBeerLabel';
+export { default as Pagination } from './Pagination/Pagination';

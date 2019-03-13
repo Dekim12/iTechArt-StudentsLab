@@ -5,36 +5,32 @@ import { FavoriteBeerLabel } from '../index';
 import { findFavoriteItem } from '../../appLogic';
 import './favoriteBeerList.scss';
 
-const FavoriteBeerList = ({ allBeers, favoriteBeers, changeFavorite }) => {
-  const deleteFavoriteItem = id => {
-    changeFavorite(id, favoriteBeers);
-  };
-
-  const generateFavoriteLabels = (beers, favoriteIds) =>
+const FavoriteBeerList = ({ beers, favoriteBeers, deleteFavoriteItem }) => {
+  const generateFavoriteLabels = (allBeers, favoriteIds) =>
     favoriteIds.map(id => (
       <FavoriteBeerLabel
-        beerInfo={findFavoriteItem(beers, id)}
+        beerInfo={findFavoriteItem(allBeers, id)}
         key={uuid()}
-        changeFavorite={deleteFavoriteItem}
+        deleteFavoriteItem={deleteFavoriteItem}
       />
     ));
 
   return (
     <article className='favorite-beer-list'>
-      {generateFavoriteLabels(allBeers, favoriteBeers)}
+      {generateFavoriteLabels(beers, favoriteBeers)}
     </article>
   );
 };
 
 FavoriteBeerList.propTypes = {
   favoriteBeers: PropTypes.arrayOf(PropTypes.number),
-  allBeers: PropTypes.arrayOf(PropTypes.any),
-  changeFavorite: PropTypes.func.isRequired,
+  beers: PropTypes.arrayOf(PropTypes.any),
+  deleteFavoriteItem: PropTypes.func.isRequired,
 };
 
 FavoriteBeerList.defaultProps = {
   favoriteBeers: [],
-  allBeers: [],
+  beers: [],
 };
 
 export default FavoriteBeerList;

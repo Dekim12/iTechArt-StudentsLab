@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { Button } from '../index';
 import './favoriteBeerLabel.scss';
 
-const FavoriteBeerLabel = ({ beerInfo, changeFavorite }) => {
+const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {
   const deleteItem = () => {
-    changeFavorite(beerInfo.id);
+    deleteFavoriteItem(beerInfo.id);
   };
 
   return (
@@ -36,7 +36,7 @@ const FavoriteBeerLabel = ({ beerInfo, changeFavorite }) => {
 
 FavoriteBeerLabel.propTypes = {
   beerInfo: PropTypes.objectOf(PropTypes.any),
-  changeFavorite: PropTypes.func.isRequired,
+  deleteFavoriteItem: PropTypes.func.isRequired,
 };
 
 FavoriteBeerLabel.defaultProps = {
