@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
+import { defineClassName } from '../../appLogic';
 import './beerLabel.scss';
 
 const BeerLabel = ({ ownProps, isFavorite, changeFavorite }) => {
@@ -20,7 +21,10 @@ const BeerLabel = ({ ownProps, isFavorite, changeFavorite }) => {
           open
         </Link>
         <Button
-          className={`favorite-btn ${isFavorite ? FAVORITE_CHECKED : ''}`}
+          className={`favorite-btn ${defineClassName(
+            isFavorite,
+            FAVORITE_CHECKED
+          )}`}
           makeChanges={changeFavorite}
         >
           <i className='fa fa-star' aria-hidden='true' />

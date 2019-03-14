@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Header, Spinner } from '../index';
+import { Header, Spinner, ToUpButton } from '../index';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import {
   MenuContainer,
   SearchPageContainer,
@@ -21,16 +22,19 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <section className='app'>
-          <Header />
-          <main className='content'>
-            <Route exact path='/' component={SearchPageContainer} />
-            <Route path='/favorite' component={FavoritePageContainer} />
-            <Route path='/beer/:id' component={BeerPageContainer} />
-          </main>
-          <MenuContainer />
-          <Spinner indicator={isLoading} />
-        </section>
+        <ScrollToTop>
+          <section className='app'>
+            <Header />
+            <main className='content'>
+              <Route exact path='/' component={SearchPageContainer} />
+              <Route path='/favorite/:id' component={FavoritePageContainer} />
+              <Route path='/beer/:id' component={BeerPageContainer} />
+            </main>
+            <MenuContainer />
+            <Spinner indicator={isLoading} />
+            <ToUpButton />
+          </section>
+        </ScrollToTop>
       </BrowserRouter>
     );
   }
