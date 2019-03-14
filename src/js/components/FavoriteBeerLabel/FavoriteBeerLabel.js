@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from '../index';
 import './favoriteBeerLabel.scss';
 
 const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {
-  const deleteItem = () => {
+  const deleteItem = useCallback(() => {
     deleteFavoriteItem(beerInfo.id);
-  };
+  }, [beerInfo.id]);
 
   return (
     <div className='favorite-label'>

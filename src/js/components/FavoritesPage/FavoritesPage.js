@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Pagination, FavoriteBeerList } from '../index';
@@ -26,9 +26,13 @@ const FavoritesPage = ({
   }
 
   const paginationPageCount = defineCountPaginationPages(favoriteBeer);
-  const deleteFavoriteItem = id => {
-    changeFavorite(id, favoriteBeer);
-  };
+
+  const deleteFavoriteItem = useCallback(
+    id => {
+      changeFavorite(id, favoriteBeer);
+    },
+    [favoriteBeer]
+  );
 
   if (paginationPageCount < routingPage || routingPage < 1) {
     redirectPaginationPage(paginationPageCount, routingPage, history);

@@ -39,10 +39,8 @@ export const findMissingItems = (allItems, necessaryItems) =>
     return null;
   });
 
-export const findFavoriteItem = (allItems, id) => {
-  const index = _.findIndex(allItems, obj => obj.id === id);
-  return allItems[index];
-};
+export const findFavoriteItem = (allItems, id) =>
+  _.find(allItems, obj => obj.id === id);
 
 export const defineCountPaginationPages = items => Math.ceil(items.length / 5);
 
