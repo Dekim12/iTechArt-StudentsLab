@@ -6,6 +6,7 @@ import {
   ADD_NEXT_BEER_PAGE,
   NEXT_PAGE_LOADING,
   SET_MISSING_BEER,
+  RESET_DATA,
 } from '../../constants';
 
 export const setAllBeers = data => ({
@@ -36,3 +37,5 @@ export const setMissingFavoriteBeer = data => ({
   type: SET_MISSING_BEER,
   payload: data,
 });
+
+export const resetSearchData = () => ({ type: RESET_DATA });

@@ -16,11 +16,20 @@ class Search extends Component {
   };
 
   sendRequest = event => {
-    const { onSearchPatternChange } = this.props;
     event.preventDefault();
+    const { onSearchPatternChange, resetFilterData } = this.props;
+
+    resetFilterData();
+
     if (this.searchQuery) {
       onSearchPatternChange(this.searchQuery);
     }
+  };
+
+  componentWillUnmount = () => {
+    const { resetSearchData, resetFilterData } = this.props;
+    resetFilterData();
+    resetSearchData();
   };
 
   render() {
@@ -44,6 +53,8 @@ class Search extends Component {
 
 Search.propTypes = {
   onSearchPatternChange: PropTypes.func.isRequired,
+  resetFilterData: PropTypes.func.isRequired,
+  resetSearchData: PropTypes.func.isRequired,
 };
 
 export default Search;

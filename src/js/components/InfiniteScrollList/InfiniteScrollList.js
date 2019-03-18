@@ -6,7 +6,7 @@ class InfiniteScrollList extends React.Component {
     super(props);
 
     this.currentPage = 1;
-    this.scrolling = false;
+    this.scrolling = true;
   }
 
   componentDidMount = () => {
