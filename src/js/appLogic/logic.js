@@ -58,29 +58,3 @@ export const redirectPaginationPage = (pageCount, currentPage, history) => {
     history.push(newUrl);
   }
 };
-
-export const findOccurrences = arrayFilterSearch => {
-  if (arrayFilterSearch.length === 1) {
-    return arrayFilterSearch[0];
-  }
-
-  for (let i = 0; i < arrayFilterSearch.length; i++) {
-    if (!arrayFilterSearch[i].length) {
-      return [];
-    }
-  }
-
-  return arrayFilterSearch.reduce((res, elem) => {
-    const newResult = [];
-
-    elem.forEach(obj => {
-      const equalElem = find(res, beer => beer.id === obj.id);
-
-      if (equalElem) {
-        newResult.push(equalElem);
-      }
-    });
-
-    return newResult;
-  });
-};

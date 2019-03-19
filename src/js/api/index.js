@@ -35,8 +35,8 @@ export const getBeerById = id => {
   };
 };
 
-export const getBeerByName = name => {
-  const url = urlFactory.produceUrlByName(name);
+export const getBeerByName = (name, params) => {
+  const url = urlFactory.produceUrlByName(name, params);
 
   return async dispatch => {
     dispatch(toggleLoading());

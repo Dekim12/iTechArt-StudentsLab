@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
-import { ExtendedSearch } from '../index';
 import { BeerLabelContainer } from '../../redux/containers';
 import './searchBeerList.scss';
 
@@ -19,7 +18,6 @@ const SearchBeerList = ({ renderData }) => {
 
   return (
     <article className='search-result'>
-      <ExtendedSearch />
       <div className='search-items-wrapper'>
         {generateItemsList(renderData)}
       </div>

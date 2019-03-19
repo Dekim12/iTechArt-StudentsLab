@@ -13,7 +13,11 @@ export const BEER_PROPERTY = {
   },
 };
 
-export const FILTER_PROPERTY_TYPE = ['abv', 'ibu', 'ebc'];
+export const FILTER_PROPERTY_TYPE = {
+  abv: '&abv_lt=',
+  ibu: '&ibu_lt=',
+  ebc: '&ebc_lt=',
+};
 
 export const LOCAL_STORAGE_ITEMS = 'favoriteList';
 

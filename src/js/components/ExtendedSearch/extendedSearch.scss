@@ -21,6 +21,7 @@
 
 .extended-search {
   width: 60%;
+  margin-bottom: 10px;
   padding: 25px 10px;
   display: flex;
   flex-direction: column;
@@ -29,4 +30,12 @@
   border-radius: 8px;
   background-color: $extended-search-bg;
   color: $extended-search-c;
+  position: absolute;
+  transform: scale(0);
+}
+
+.show-filter {
+  transition: transform 0.8s ease-in-out;
+  transform: scale(1);
+  position: relative;
 }
