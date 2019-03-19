@@ -1,7 +1,24 @@
+import { FILTER_PROPERTY_TYPE } from '../constants';
+
 export const urlFactory = {
-  produceUrlByName: name => {
-    const PUNK_API_CURRENT_NAME = 'https://api.punkapi.com/v2/beers?beer_name=';
-    return PUNK_API_CURRENT_NAME + name;
+  produceUrlByName: (name, params) => {
+    const PUNK_API_WITH_NAME = 'https://api.punkapi.com/v2/beers?beer_name=';
+    const PUNK_API_WITHOUT_NAME = 'https://api.punkapi.com/v2/beers?';
+
+    const paramsQuery = Object.keys(params).reduce(
+      (string, current) =>
+        string.concat(
+          FILTER_PROPERTY_TYPE[current],
+          Math.floor(params[current])
+        ),
+      ''
+    );
+
+    if (name) {
+      return PUNK_API_WITH_NAME + name + paramsQuery;
+    }
+
+    return PUNK_API_WITHOUT_NAME + paramsQuery;
   },
   produceUrlById: id => {
     const PUNK_API_CURRENT_ID = 'https://api.punkapi.com/v2/beers/';

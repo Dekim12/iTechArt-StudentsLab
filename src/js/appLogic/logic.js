@@ -1,8 +1,8 @@
-import _ from 'lodash';
+import { find, findIndex } from 'lodash';
 import { LOCAL_STORAGE_ITEMS, COUNT_FAVORITE_ITEMS } from '../constants';
 
 export const selectionNecessaryData = (data, beerId) => {
-  const beer = _.find(data, item => item.id === +beerId);
+  const beer = find(data, item => item.id === +beerId);
   if (!beer) {
     return null;
   }
@@ -15,8 +15,8 @@ export const selectionNecessaryData = (data, beerId) => {
     tagline: beer.tagline,
     description: beer.description,
     alcohol: beer.abv,
-    bitterness: beer.ebc,
-    beerColor: beer.ibu,
+    bitterness: beer.ibu,
+    beerColor: beer.ebc,
     ingredients: beer.ingredients,
     method: beer.method,
     id: beer.id,
@@ -32,7 +32,7 @@ export const setDataToLocalStorage = data => {
 
 export const findMissingItems = (allItems, necessaryItems) =>
   necessaryItems.filter(item => {
-    const index = _.findIndex(allItems, obj => obj.id === item);
+    const index = findIndex(allItems, obj => obj.id === item);
     if (index === -1) {
       return item;
     }
@@ -40,7 +40,7 @@ export const findMissingItems = (allItems, necessaryItems) =>
   });
 
 export const findFavoriteItem = (allItems, id) =>
-  _.find(allItems, obj => obj.id === id);
+  find(allItems, obj => obj.id === id);
 
 export const defineCountPaginationPages = items => Math.ceil(items.length / 5);
 

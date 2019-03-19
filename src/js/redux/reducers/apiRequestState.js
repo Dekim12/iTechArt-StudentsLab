@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { unionBy, concat } from 'lodash';
 import {
   REQUEST_SUCCESS,
   SET_BEER_BY_ID,
@@ -7,12 +7,14 @@ import {
   ADD_NEXT_BEER_PAGE,
   NEXT_PAGE_LOADING,
   SET_MISSING_BEER,
+  RESET_DATA,
 } from '../../constants';
 
 const initialState = {
   isLoading: true,
   allBeers: [],
   nextPageLoading: false,
+  resultSearchBeer: null,
 };
 
 const apiRequestState = (state = initialState, action) => {
@@ -21,7 +23,7 @@ const apiRequestState = (state = initialState, action) => {
       return { ...state, isLoading: true };
     }
     case REQUEST_SUCCESS: {
-      const allBeers = _.unionBy(state.allBeers, action.payload, 'id');
+      const allBeers = unionBy(state.allBeers, action.payload, 'id');
       return {
         ...state,
         allBeers,
@@ -31,11 +33,11 @@ const apiRequestState = (state = initialState, action) => {
       };
     }
     case SET_BEER_BY_ID: {
-      const allBeers = _.concat(state.allBeers, action.payload);
+      const allBeers = concat(state.allBeers, action.payload);
       return { ...state, allBeers };
     }
     case SET_BEER_BY_NAME: {
-      const allBeers = _.unionBy(state.allBeers, action.payload, 'id');
+      const allBeers = unionBy(state.allBeers, action.payload, 'id');
       return {
         ...state,
         isLoading: false,
@@ -44,8 +46,8 @@ const apiRequestState = (state = initialState, action) => {
       };
     }
     case ADD_NEXT_BEER_PAGE: {
-      const allBeers = _.unionBy(state.allBeers, action.payload, 'id');
-      const data = _.concat(state.data, action.payload);
+      const allBeers = unionBy(state.allBeers, action.payload, 'id');
+      const data = concat(state.data, action.payload);
       return {
         ...state,
         allBeers,
@@ -56,9 +58,11 @@ const apiRequestState = (state = initialState, action) => {
     case NEXT_PAGE_LOADING:
       return { ...state, nextPageLoading: true };
     case SET_MISSING_BEER: {
-      const allBeers = _.unionBy(state.allBeers, action.payload, 'id');
+      const allBeers = unionBy(state.allBeers, action.payload, 'id');
       return { ...state, allBeers, isLoading: false };
     }
+    case RESET_DATA:
+      return { ...state, resultSearchBeer: null };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleMenu } from '../actions';
-import { PopUpMenu } from '../../components/index';
+import { PopUpMenu } from '../../components';
 
 const mapStateToProps = state => ({
   isOpen: state.menuState.isOpen,

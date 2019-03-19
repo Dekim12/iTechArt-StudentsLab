@@ -17,7 +17,11 @@ const SearchBeerList = ({ renderData }) => {
     ));
 
   return (
-    <article className='search-result'>{generateItemsList(renderData)}</article>
+    <article className='search-result'>
+      <div className='search-items-wrapper'>
+        {generateItemsList(renderData)}
+      </div>
+    </article>
   );
 };
 
