@@ -8,6 +8,7 @@ import { selectionNecessaryData } from '../../appLogic';
 const mapStateToProps = state => {
   return {
     beersData: state.apiRequestState.allBeers,
+    isError: state.apiRequestState.isError,
     favoriteBeer: state.favoriteBeerState.favoriteBeer,
   };
 };
@@ -23,13 +24,13 @@ const mapDispatchToProps = dispatch =>
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { match } = ownProps;
-  const { beersData, favoriteBeer } = stateProps;
+  const { beersData, favoriteBeer, isError } = stateProps;
 
   const changeFavorite = () => {
     dispatchProps.changeFavoriteList(+match.params.id, favoriteBeer);
   };
 
-  if (!beersData || match.params.id < 1) {
+  if (!beersData || match.params.id < 1 || isError) {
     return { isEmpty: true, changeFavorite };
   }
 

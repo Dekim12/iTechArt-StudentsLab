@@ -13,3 +13,4 @@ export const CHANGE_IBU = 'CHANGE_IBU';
 export const CHANGE_EBC = 'CHANGE_EBC';
 export const RESET_DATA = 'RESET_DATA';
 export const RESET_FILTER_DATA = 'RESET_FILTER_DATA';
+export const ERROR_TOGGLE = 'ERROR_TOGGLE';

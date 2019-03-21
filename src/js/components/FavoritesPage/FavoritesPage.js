@@ -34,7 +34,12 @@ const FavoritesPage = ({
     [favoriteBeer]
   );
 
-  if (paginationPageCount < routingPage || routingPage < 1) {
+  if (
+    paginationPageCount < routingPage ||
+    routingPage < 1 ||
+    isNaN(routingPage) ||
+    !Number.isInteger(routingPage)
+  ) {
     redirectPaginationPage(paginationPageCount, routingPage, history);
   }
 

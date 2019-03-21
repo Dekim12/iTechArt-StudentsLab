@@ -8,6 +8,7 @@ import {
   NEXT_PAGE_LOADING,
   SET_MISSING_BEER,
   RESET_DATA,
+  ERROR_TOGGLE,
 } from '../../constants';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   allBeers: [],
   nextPageLoading: false,
   resultSearchBeer: null,
+  isError: false,
 };
 
 const apiRequestState = (state = initialState, action) => {
@@ -63,6 +65,8 @@ const apiRequestState = (state = initialState, action) => {
     }
     case RESET_DATA:
       return { ...state, resultSearchBeer: null };
+    case ERROR_TOGGLE:
+      return { ...state, isError: !state.isError, isLoading: false };
     default:
       return state;
   }
