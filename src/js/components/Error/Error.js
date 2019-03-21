@@ -6,9 +6,9 @@ import { ERROR_VISIBLE } from '../../constants';
 import smile from '../../../image/smile.png';
 import './error.scss';
 
-const Error = ({ isError, toggle, history }) => {
-  const toggleError = useCallback(() => {
-    toggle();
+const Error = ({ isError, errorToggle, history }) => {
+  const toggle = useCallback(() => {
+    errorToggle();
     history.push('/');
   });
 
@@ -19,11 +19,7 @@ const Error = ({ isError, toggle, history }) => {
       <div className='error'>
         <p>Something went wrong!</p>
         <img src={smile} alt='smile' />
-        <i
-          className='fa fa-times-circle'
-          aria-hidden='true'
-          onClick={toggleError}
-        />
+        <i className='fa fa-times-circle' aria-hidden='true' onClick={toggle} />
       </div>
     </section>
   );
@@ -31,7 +27,7 @@ const Error = ({ isError, toggle, history }) => {
 
 Error.propTypes = {
   isError: PropTypes.bool,
-  toggle: PropTypes.func.isRequired,
+  errorToggle: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any),
 };
 

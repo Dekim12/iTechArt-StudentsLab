@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Header, Spinner, ToUpButton, Error } from '../index';
+import { Header, Spinner, ToUpButton } from '../index';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import {
   MenuContainer,
   SearchPageContainer,
   BeerPageContainer,
   FavoritePageContainer,
+  ErrorContainer,
 } from '../../redux/containers';
 import './app.scss';
 
@@ -18,7 +19,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoading, isError, errorToggle } = this.props;
+    const { isLoading } = this.props;
 
     return (
       <BrowserRouter>
@@ -33,7 +34,7 @@ class App extends Component {
             <MenuContainer />
             <Spinner indicator={isLoading} />
             <ToUpButton />
-            <Error isError={isError} toggle={errorToggle} />
+            <ErrorContainer />
           </section>
         </ScrollToTop>
       </BrowserRouter>
@@ -43,14 +44,11 @@ class App extends Component {
 
 App.propTypes = {
   isLoading: PropTypes.bool,
-  isError: PropTypes.bool,
   getAllBeers: PropTypes.func.isRequired,
-  errorToggle: PropTypes.func.isRequired,
 };
 
 App.defaultProps = {
   isLoading: true,
-  isError: false,
 };
 
 export default App;
