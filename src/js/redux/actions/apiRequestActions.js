@@ -7,6 +7,7 @@ import {
   NEXT_PAGE_LOADING,
   SET_MISSING_BEER,
   RESET_DATA,
+  ERROR_TOGGLE,
 } from '../../constants';
 
 export const setAllBeers = data => ({
@@ -39,3 +40,5 @@ export const setMissingFavoriteBeer = data => ({
 });
 
 export const resetSearchData = () => ({ type: RESET_DATA });
+
+export const errorToggle = () => ({ type: ERROR_TOGGLE });

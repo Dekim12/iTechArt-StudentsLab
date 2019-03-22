@@ -25,3 +25,4 @@ export { default as Pagination } from './Pagination/Pagination';
 export { default as ToUpButton } from './ToUpButton/ToUpButton';
 export { default as ExtendedSearch } from './ExtendedSearch/ExtendedSearch';
 export { default as Range } from './Range/Range';
+export { default as Error } from './Error/Error';

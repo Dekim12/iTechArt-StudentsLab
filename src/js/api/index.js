@@ -6,6 +6,7 @@ import {
   toggleLoading,
   addNextBeerPage,
   setMissingFavoriteBeer,
+  errorToggle,
 } from '../redux/actions';
 import { urlFactory } from './urlFactory';
 
@@ -17,7 +18,7 @@ export const getAllBeers = () => {
       const response = await axios.get(url);
       dispatch(setAllBeers(response.data));
     } catch (error) {
-      alert(error);
+      dispatch(errorToggle());
     }
   };
 };
@@ -30,7 +31,7 @@ export const getBeerById = id => {
       const response = await axios.get(url);
       dispatch(setBeerById(response.data));
     } catch (error) {
-      alert(error);
+      dispatch(errorToggle());
     }
   };
 };
@@ -45,7 +46,7 @@ export const getBeerByName = (name, params) => {
       const response = await axios.get(url);
       dispatch(setBeerByName(response.data));
     } catch (error) {
-      alert(error);
+      dispatch(errorToggle());
     }
   };
 };
@@ -58,7 +59,7 @@ export const getNextBeerPage = number => {
       const response = await axios.get(url);
       dispatch(addNextBeerPage(response.data));
     } catch (error) {
-      alert(error);
+      dispatch(errorToggle());
     }
   };
 };
@@ -73,7 +74,7 @@ export const getFavoriteBeerById = missingBeer => {
       const response = await axios.get(url);
       dispatch(setMissingFavoriteBeer(response.data));
     } catch (error) {
-      alert(error);
+      dispatch(errorToggle());
     }
   };
 };

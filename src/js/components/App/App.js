@@ -8,6 +8,7 @@ import {
   SearchPageContainer,
   BeerPageContainer,
   FavoritePageContainer,
+  ErrorContainer,
 } from '../../redux/containers';
 import './app.scss';
 
@@ -33,6 +34,7 @@ class App extends Component {
             <MenuContainer />
             <Spinner indicator={isLoading} />
             <ToUpButton />
+            <ErrorContainer />
           </section>
         </ScrollToTop>
       </BrowserRouter>

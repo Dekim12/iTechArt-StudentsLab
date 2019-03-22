@@ -1,55 +1,50 @@
 @import '../../../style/vars';
 
-@media (max-width: 1300px) {
-  .pop-up-menu .nav-links {
-    width: 40%;
-  }
-}
-
-@media (max-width: 980px) {
-  .pop-up-menu .nav-links {
-    width: 55%;
-  }
-}
-
-@media (max-width: 750px) {
-  .pop-up-menu .nav-links {
+@media (max-width: 802px) {
+  div.pop-up-menu {
     width: 100%;
-    flex-direction: column;
-    align-items: center;
+  }
+
+  .pop-up-menu .nav-links a {
+    width: 50%;
   }
 }
 
 .pop-up-menu {
   position: fixed;
-  width: 100%;
+  width: 350px;
   height: 100vh;
-  top: -100vh;
-  left: 0;
+  padding-top: 9vh;
+  top: 0;
+  left: -3000px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background: $menu-bg;
-  z-index: 99;
-  transition: 0.6s ease-in-out;
+  z-index: 90;
+  transition: 0.4s ease-in-out;
 }
 
 .pop-up-menu.menu-visible {
-  transform: translateY(100vh) translateX(0em);
+  transform: translateY(0em) translateX(3000px);
 }
 
 .nav-links {
-  width: 35%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
 .nav-links a {
   position: relative;
+  width: 80%;
   margin: 20px 0;
   padding: 10px 20px;
   display: block;
   color: $menu-nav-link-color;
+  text-align: center;
   font-size: 1.6rem;
   transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
 
