@@ -1,14 +1,14 @@
 export const BEER_PROPERTY = {
   alcohol: {
-    tooltip: 'Alcohol By Volume',
+    tooltip: 'abv',
     abbreviation: 'ABV',
   },
   bitterness: {
-    tooltip: 'International Bitterness Units',
+    tooltip: 'ibu',
     abbreviation: 'IBU',
   },
   beerColor: {
-    tooltip: 'European Brewery Convention',
+    tooltip: 'ebc',
     abbreviation: 'EBC',
   },
 };
@@ -25,7 +25,7 @@ export const COUNT_FAVORITE_ITEMS = 5;
 
 export const FILTER_PROPERTY = [
   {
-    name: 'Alcohol by volume',
+    name: 'abv',
     min: 2,
     max: 14,
     step: 0.1,
@@ -33,7 +33,7 @@ export const FILTER_PROPERTY = [
     type: 'abv',
   },
   {
-    name: 'International bitterness units',
+    name: 'ibu',
     min: 0,
     max: 120,
     step: 1,
@@ -41,11 +41,16 @@ export const FILTER_PROPERTY = [
     type: 'ibu',
   },
   {
-    name: 'Color by EBC',
+    name: 'ebc_color',
     min: 4,
     max: 80,
     step: 1,
     middle: 42,
     type: 'ebc',
   },
+];
+
+export const LANGUAGES = [
+  { className: 'eng-switcher', language: 'en' },
+  { className: 'ru-switcher', language: 'ru' },
 ];

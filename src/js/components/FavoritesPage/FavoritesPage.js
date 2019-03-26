@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Pagination, FavoriteBeerList } from '../index';
 import {
   defineCountPaginationPages,
@@ -17,15 +18,7 @@ const FavoritesPage = ({
   routingPage,
   history,
 }) => {
-  if (isEmpty) {
-    return (
-      <section className='page favorites-page'>
-        <h1>Favorite beer</h1>
-      </section>
-    );
-  }
-
-  const paginationPageCount = defineCountPaginationPages(favoriteBeer);
+  const { t } = useTranslation();
 
   const deleteFavoriteItem = useCallback(
     id => {
@@ -34,13 +27,23 @@ const FavoritesPage = ({
     [favoriteBeer]
   );
 
+  if (isEmpty) {
+    return (
+      <section className='page favorites-page'>
+        <h1>{t('favorite')}</h1>
+      </section>
+    );
+  }
+
+  const paginationPageCount = defineCountPaginationPages(favoriteBeer);
+
   if (paginationPageCount < routingPage || routingPage < 1) {
     redirectPaginationPage(paginationPageCount, routingPage, history);
   }
 
   return (
     <section className='page favorites-page'>
-      <h1>Favorite beer</h1>
+      <h1>{t('favorite')}</h1>
       <FavoriteBeerList
         favoriteBeers={selectFavoriteByPage(favoriteBeer, routingPage)}
         beers={allBeers}
