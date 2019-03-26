@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import { Button, ExtendedSearch } from '../index';
 import './search.scss';
 
@@ -47,13 +48,15 @@ class Search extends Component {
   };
 
   render() {
+    const { t } = this.props;
+
     return (
       <Fragment>
         <article className='search'>
           <form className='search-form' onSubmit={this.sendRequest}>
             <input
               type='text'
-              placeholder='Search beers...'
+              placeholder={t('input_placeholder')}
               maxLength='50'
               onChange={this.addSearchQuery}
               onFocus={this.showFilter}
@@ -78,4 +81,4 @@ Search.propTypes = {
   resetSearchData: PropTypes.func.isRequired,
 };
 
-export default Search;
+export default withTranslation()(Search);

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import {
   Ingredients,
   Method,
@@ -13,6 +14,8 @@ import { defineClassName } from '../../appLogic';
 import './beerPage.scss';
 
 const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
+  const { t } = useTranslation();
+
   if (isEmpty) {
     return <section className='page beer-page' />;
   }
@@ -45,21 +48,27 @@ const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
               alcohol={beer.alcohol}
               bitterness={beer.bitterness}
               beerColor={beer.beerColor}
+              t={t}
             />
-            <FoodPairing food={beer.foodPairing} />
+            <FoodPairing food={beer.foodPairing} t={t} />
           </div>
         </div>
         <img src={beer.url} alt={beer.name} />
       </article>
       <article className='brewing'>
-        <h2>Brewing</h2>
+        <h2>{t('brewing')}</h2>
         <p>{beer.brewing}</p>
         <div className='ingredients-and-method'>
-          <Ingredients ingredients={beer.ingredients} water={beer.water} />
+          <Ingredients
+            ingredients={beer.ingredients}
+            water={beer.water}
+            t={t}
+          />
           <Method
             fermentation={beer.method.fermentation}
             temp={beer.method.mash_temp}
             twist={beer.method.twist}
+            t={t}
           />
         </div>
       </article>

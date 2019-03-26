@@ -1,23 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { BeerListContainer } from '../../redux/containers';
 import { Search, SearchBeerList } from '../index';
 import './searchPage.scss';
 
-const SearchPage = ({ getBeerByName, resultSearchBeer, resetSearchData }) => (
-  <section className='page search-page'>
-    <h1>Punk IPA beer</h1>
-    <Search
-      onSearchPatternChange={getBeerByName}
-      resetSearchData={resetSearchData}
-    />
-    {resultSearchBeer ? (
-      <SearchBeerList renderData={resultSearchBeer} />
-    ) : (
-      <BeerListContainer />
-    )}
-  </section>
-);
+const SearchPage = ({ getBeerByName, resultSearchBeer, resetSearchData }) => {
+  const { t } = useTranslation();
+
+  return (
+    <section className='page search-page'>
+      <h1>{t('main_headline')}</h1>
+      <Search
+        onSearchPatternChange={getBeerByName}
+        resetSearchData={resetSearchData}
+      />
+      {resultSearchBeer ? (
+        <SearchBeerList renderData={resultSearchBeer} />
+      ) : (
+        <BeerListContainer />
+      )}
+    </section>
+  );
+};
 
 SearchPage.propTypes = {
   getBeerByName: PropTypes.func.isRequired,
