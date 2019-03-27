@@ -1,4 +1,5 @@
 import React from 'react';
+import { LanguageSwitcher } from '../index';
 import { BurgerBtnContainer } from '../../redux/containers';
 import './header.scss';
 
@@ -11,7 +12,10 @@ const Header = () => {
           alt='logo'
         />
       </a>
-      <BurgerBtnContainer />
+      <div className='translate-btn-wrapper'>
+        <LanguageSwitcher />
+        <BurgerBtnContainer />
+      </div>
     </header>
   );
 };

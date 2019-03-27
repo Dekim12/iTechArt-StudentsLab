@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from '../index';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './favoriteBeerLabel.scss';
 
 const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {
@@ -22,7 +23,7 @@ const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {
         from='/search'
         className='open-page-link'
       >
-        open
+        {getTranslatedText('open_page')}
       </Link>
       <Button
         className='favorite-btn favorite-checked'

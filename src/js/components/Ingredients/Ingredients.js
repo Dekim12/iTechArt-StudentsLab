@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './ingredients.scss';
 
 const Ingredients = ({ ingredients, water }) => {
@@ -20,22 +21,22 @@ const Ingredients = ({ ingredients, water }) => {
 
   return (
     <div className='ingredients-wrapper'>
-      <h2>Ingredients</h2>
+      <h2>{getTranslatedText('ingredients')}</h2>
       <ul className='list ingredients'>
         <li>
-          <h4>Water</h4>
+          <h4>{getTranslatedText('water')}</h4>
           <span>{`${water.value} ${water.unit}`}</span>
         </li>
         <li>
-          <h4>Malt</h4>
+          <h4>{getTranslatedText('malt')}</h4>
           {generateMaltItems(ingredients.malt)}
         </li>
         <li>
-          <h4>Hops</h4>
+          <h4>{getTranslatedText('hops')}</h4>
           {generateHopsItems(ingredients.hops)}
         </li>
         <li>
-          <h4>Yeast</h4>
+          <h4>{getTranslatedText('yeast')}</h4>
           <span>{ingredients.yeast}</span>
         </li>
       </ul>

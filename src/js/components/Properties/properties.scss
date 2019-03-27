@@ -50,6 +50,7 @@
 .abbreviation {
   width: 45px;
   display: block;
+  text-transform: uppercase;
 }
 
 .info-label {
@@ -73,11 +74,14 @@
 
 .tooltip {
   position: absolute;
-  width: 210px;
+  width: 225px;
+  height: 50px;
   padding: 10px;
-  top: -40px;
-  left: -5px;
-  display: inline-block;
+  top: -53px;
+  left: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: $tooltip-color;
   background: $tooltip-bg;
@@ -93,7 +97,7 @@
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 7px;
+    left: 11px;
     display: block;
     border: 5px solid transparent;
     border-top: 5px solid $tooltip-bg;

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
 import { defineClassName } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './beerLabel.scss';
 
 const BeerLabel = ({ ownProps, isFavorite, changeFavorite }) => {
@@ -18,7 +19,7 @@ const BeerLabel = ({ ownProps, isFavorite, changeFavorite }) => {
       </div>
       <div className='button-wrapper'>
         <Link to={`/beer/${id}`} from='/search' className='open-page-link'>
-          open
+          {getTranslatedText('open_page')}
         </Link>
         <Button
           className={`favorite-btn ${defineClassName(

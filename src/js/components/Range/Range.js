@@ -16,12 +16,12 @@ class Range extends React.Component {
   };
 
   render() {
-    const { property } = this.props;
+    const { property, name } = this.props;
     const { rangeValue } = this.state;
 
     return (
       <div className='range'>
-        <p>{property.name}</p>
+        <p>{name}</p>
         <label>
           <input
             className='input-range'
@@ -42,12 +42,14 @@ class Range extends React.Component {
 Range.propTypes = {
   property: PropTypes.objectOf(PropTypes.any),
   propertyStore: PropTypes.objectOf(PropTypes.string),
+  name: PropTypes.string,
   setProperty: PropTypes.func.isRequired,
 };
 
 Range.defaultProps = {
   property: {},
   propertyStore: {},
+  name: '',
 };
 
 export default Range;

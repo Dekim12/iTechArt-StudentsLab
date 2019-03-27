@@ -10,6 +10,7 @@ import {
 } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
 import { defineClassName } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './beerPage.scss';
 
 const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
@@ -52,7 +53,7 @@ const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
         <img src={beer.url} alt={beer.name} />
       </article>
       <article className='brewing'>
-        <h2>Brewing</h2>
+        <h2>{getTranslatedText('brewing')}</h2>
         <p>{beer.brewing}</p>
         <div className='ingredients-and-method'>
           <Ingredients ingredients={beer.ingredients} water={beer.water} />

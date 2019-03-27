@@ -7,6 +7,7 @@ import {
   selectFavoriteByPage,
   redirectPaginationPage,
 } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './favoritesPage.scss';
 
 const FavoritesPage = ({
@@ -17,22 +18,22 @@ const FavoritesPage = ({
   routingPage,
   history,
 }) => {
-  if (isEmpty) {
-    return (
-      <section className='page favorites-page'>
-        <h1>Favorite beer</h1>
-      </section>
-    );
-  }
-
-  const paginationPageCount = defineCountPaginationPages(favoriteBeer);
-
   const deleteFavoriteItem = useCallback(
     id => {
       changeFavorite(id, favoriteBeer);
     },
     [favoriteBeer]
   );
+
+  if (isEmpty) {
+    return (
+      <section className='page favorites-page'>
+        <h1>{getTranslatedText('favorite')}</h1>
+      </section>
+    );
+  }
+
+  const paginationPageCount = defineCountPaginationPages(favoriteBeer);
 
   if (
     paginationPageCount < routingPage ||
@@ -45,7 +46,7 @@ const FavoritesPage = ({
 
   return (
     <section className='page favorites-page'>
-      <h1>Favorite beer</h1>
+      <h1>{getTranslatedText('favorite')}</h1>
       <FavoriteBeerList
         favoriteBeers={selectFavoriteByPage(favoriteBeer, routingPage)}
         beers={allBeers}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './method.scss';
 
 const Method = ({ fermentation, temp, twist }) => {
@@ -13,18 +14,18 @@ const Method = ({ fermentation, temp, twist }) => {
 
   return (
     <div className='method-wrapper'>
-      <h2>Method</h2>
+      <h2>{getTranslatedText('method')}</h2>
       <ul className='method'>
         <li>
-          <h4>Mash</h4>
+          <h4>{getTranslatedText('mash')}</h4>
           {generateMashItems(temp)}
         </li>
         <li>
-          <h4>Fermentation</h4>
+          <h4>{getTranslatedText('fermentation')}</h4>
           <span>{`Perform at ${fermentation.temp.value} °C`}</span>
         </li>
         <li>
-          <h4>Twist</h4>
+          <h4>{getTranslatedText('twist')}</h4>
           <span>{twist || 'Without twist'}</span>
         </li>
       </ul>

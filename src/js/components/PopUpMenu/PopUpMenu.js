@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { defineClassName } from '../../appLogic/utils';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import * as constants from '../../constants/index';
 import './popUpMenu.scss';
 
@@ -13,9 +14,9 @@ const PopUpMenu = ({ isOpen, toggleMenu }) => (
   >
     <nav className='nav-links'>
       <NavLink exact to='/'>
-        Search Beer
+        {getTranslatedText('search_beer')}
       </NavLink>
-      <NavLink to='/favorite/1'>Favorite Beer</NavLink>
+      <NavLink to='/favorite/1'>{getTranslatedText('favorite')}</NavLink>
     </nav>
   </div>
 );

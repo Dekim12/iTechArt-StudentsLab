@@ -26,3 +26,6 @@ export { default as ToUpButton } from './ToUpButton/ToUpButton';
 export { default as ExtendedSearch } from './ExtendedSearch/ExtendedSearch';
 export { default as Range } from './Range/Range';
 export { default as Error } from './Error/Error';
+export {
+  default as LanguageSwitcher,
+} from './LanguageSwitcher/LanguageSwitcher';

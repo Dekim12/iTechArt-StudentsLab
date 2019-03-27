@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Translation } from '../../appLogic/internalization/internalizationProvider';
 import { Button, ExtendedSearch } from '../index';
 import './search.scss';
 
@@ -47,13 +48,15 @@ class Search extends Component {
   };
 
   render() {
+    const { getTranslatedText } = this.props;
+
     return (
       <Fragment>
         <article className='search'>
           <form className='search-form' onSubmit={this.sendRequest}>
             <input
               type='text'
-              placeholder='Search beers...'
+              placeholder={getTranslatedText('input_placeholder')}
               maxLength='50'
               onChange={this.addSearchQuery}
               onFocus={this.showFilter}
@@ -76,6 +79,7 @@ class Search extends Component {
 Search.propTypes = {
   onSearchPatternChange: PropTypes.func.isRequired,
   resetSearchData: PropTypes.func.isRequired,
+  getTranslatedText: PropTypes.func.isRequired,
 };
 
-export default Search;
+export default Translation(Search);
