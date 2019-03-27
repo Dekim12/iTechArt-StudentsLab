@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import './method.scss';
 
-const Method = ({ fermentation, temp, twist, t }) => {
+const Method = ({ fermentation, temp, twist, translate }) => {
   const generateMashItems = mash =>
     mash.map(item => (
       <span key={uuid()}>
@@ -13,18 +13,18 @@ const Method = ({ fermentation, temp, twist, t }) => {
 
   return (
     <div className='method-wrapper'>
-      <h2>{t('method')}</h2>
+      <h2>{translate('method')}</h2>
       <ul className='method'>
         <li>
-          <h4>{t('mash')}</h4>
+          <h4>{translate('mash')}</h4>
           {generateMashItems(temp)}
         </li>
         <li>
-          <h4>{t('fermentation')}</h4>
+          <h4>{translate('fermentation')}</h4>
           <span>{`Perform at ${fermentation.temp.value} °C`}</span>
         </li>
         <li>
-          <h4>{t('twist')}</h4>
+          <h4>{translate('twist')}</h4>
           <span>{twist || 'Without twist'}</span>
         </li>
       </ul>
@@ -36,7 +36,7 @@ Method.propTypes = {
   fermentation: PropTypes.objectOf(PropTypes.any),
   temp: PropTypes.arrayOf(PropTypes.object),
   twist: PropTypes.string,
-  t: PropTypes.func.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 
 Method.defaultProps = {

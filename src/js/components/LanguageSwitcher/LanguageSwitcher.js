@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import uuid from 'uuid/v1';
 import { Button } from '../index';
@@ -7,23 +8,19 @@ import { ACTIVE_LANGUAGE, LANGUAGES } from '../../constants';
 import './languageSwitcher.scss';
 
 class LanguageSwitcher extends React.Component {
-  state = { isEnglishLanguage: true };
+  state = { activeLanguage: 'en' };
 
-  switchLanguage = language => {
-    this.props.i18n.changeLanguage(language);
-    const isEnglish = language === 'en';
-    this.setState({ isEnglishLanguage: isEnglish });
+  switchLanguage = languageKey => {
+    this.props.i18n.changeLanguage(languageKey);
+    this.setState({ activeLanguage: languageKey });
   };
 
-  generateLanguages = languagesList =>
-    languagesList.map(elem => {
-      const isActiveLanguages =
-        elem.language === 'en'
-          ? this.state.isEnglishLanguage
-          : !this.state.isEnglishLanguage;
-      const languagesClassName = elem.className.concat(
+  generateLanguages = languageList =>
+    languageList.map(elem => {
+      const isActive = this.state.activeLanguage === elem.language;
+      const languageClassName = elem.className.concat(
         ' ',
-        defineClassName(isActiveLanguages, ACTIVE_LANGUAGE)
+        defineClassName(isActive, ACTIVE_LANGUAGE)
       );
 
       const currentSwitch = () => {
@@ -32,7 +29,7 @@ class LanguageSwitcher extends React.Component {
 
       return (
         <Button
-          className={languagesClassName}
+          className={languageClassName}
           makeChanges={currentSwitch}
           key={uuid()}
         >
@@ -49,5 +46,10 @@ class LanguageSwitcher extends React.Component {
     );
   }
 }
+
+LanguageSwitcher.propTypes = {
+  i18n: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
+};
 
 export default withTranslation()(LanguageSwitcher);

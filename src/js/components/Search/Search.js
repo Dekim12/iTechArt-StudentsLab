@@ -79,6 +79,7 @@ class Search extends Component {
 Search.propTypes = {
   onSearchPatternChange: PropTypes.func.isRequired,
   resetSearchData: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 export default withTranslation()(Search);

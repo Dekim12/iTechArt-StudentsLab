@@ -4,7 +4,7 @@ import { BEER_PROPERTY } from '../../constants';
 import './properties.scss';
 
 const Properties = props => {
-  const { t } = props;
+  const { translate } = props;
 
   const generateBeerProperty = arr =>
     arr.map(item => (
@@ -14,7 +14,9 @@ const Properties = props => {
         </span>
         <div className='info-label'>
           <i className='fa fa-info-circle' aria-hidden='true' />
-          <span className='tooltip'>{t(BEER_PROPERTY[item].tooltip)}</span>
+          <span className='tooltip'>
+            {translate(BEER_PROPERTY[item].abbreviation)}
+          </span>
         </div>
         <span className='abbreviation'>{BEER_PROPERTY[item].abbreviation}</span>
       </li>
@@ -22,7 +24,7 @@ const Properties = props => {
 
   return (
     <div className='prop-list-wrapper'>
-      <h2>{t('properties')}</h2>
+      <h2>{translate('properties')}</h2>
       <ul className='list beer-properties'>
         {generateBeerProperty(Object.keys(BEER_PROPERTY))}
       </ul>

@@ -25,6 +25,7 @@ export const resources = {
       twist: 'Twist',
       en: 'Eng',
       ru: 'Rus',
+      error: 'Something went wrong!',
     },
   },
   ru: {
@@ -53,6 +54,7 @@ export const resources = {
       twist: 'Перемешивание',
       en: 'Англ',
       ru: 'Рус',
+      error: 'Что то пошло не так!',
     },
   },
 };

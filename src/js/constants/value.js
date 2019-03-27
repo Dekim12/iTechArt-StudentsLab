@@ -1,15 +1,12 @@
 export const BEER_PROPERTY = {
   alcohol: {
-    tooltip: 'abv',
-    abbreviation: 'ABV',
+    abbreviation: 'abv',
   },
   bitterness: {
-    tooltip: 'ibu',
-    abbreviation: 'IBU',
+    abbreviation: 'ibu',
   },
   beerColor: {
-    tooltip: 'ebc',
-    abbreviation: 'EBC',
+    abbreviation: 'ebc',
   },
 };
 

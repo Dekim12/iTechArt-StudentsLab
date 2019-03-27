@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import {
   Ingredients,
   Method,
@@ -10,12 +9,10 @@ import {
   Spinner,
 } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
-import { defineClassName } from '../../appLogic';
+import { defineClassName, getTranslatedText } from '../../appLogic';
 import './beerPage.scss';
 
 const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
-  const { t } = useTranslation();
-
   if (isEmpty) {
     return <section className='page beer-page' />;
   }
@@ -48,27 +45,30 @@ const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
               alcohol={beer.alcohol}
               bitterness={beer.bitterness}
               beerColor={beer.beerColor}
-              t={t}
+              translate={getTranslatedText}
             />
-            <FoodPairing food={beer.foodPairing} t={t} />
+            <FoodPairing
+              food={beer.foodPairing}
+              translate={getTranslatedText}
+            />
           </div>
         </div>
         <img src={beer.url} alt={beer.name} />
       </article>
       <article className='brewing'>
-        <h2>{t('brewing')}</h2>
+        <h2>{getTranslatedText('brewing')}</h2>
         <p>{beer.brewing}</p>
         <div className='ingredients-and-method'>
           <Ingredients
             ingredients={beer.ingredients}
             water={beer.water}
-            t={t}
+            translate={getTranslatedText}
           />
           <Method
             fermentation={beer.method.fermentation}
             temp={beer.method.mash_temp}
             twist={beer.method.twist}
-            t={t}
+            translate={getTranslatedText}
           />
         </div>
       </article>

@@ -1,13 +1,11 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '../index';
+import { getTranslatedText } from '../../appLogic';
 import './favoriteBeerLabel.scss';
 
 const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {
-  const { t } = useTranslation();
-
   const deleteItem = useCallback(() => {
     deleteFavoriteItem(beerInfo.id);
   }, [beerInfo.id]);
@@ -25,7 +23,7 @@ const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {
         from='/search'
         className='open-page-link'
       >
-        {t('open_page')}
+        {getTranslatedText('open_page')}
       </Link>
       <Button
         className='favorite-btn favorite-checked'

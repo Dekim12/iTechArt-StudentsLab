@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Pagination, FavoriteBeerList } from '../index';
 import {
   defineCountPaginationPages,
   selectFavoriteByPage,
   redirectPaginationPage,
+  getTranslatedText,
 } from '../../appLogic';
 import './favoritesPage.scss';
 
@@ -18,8 +18,6 @@ const FavoritesPage = ({
   routingPage,
   history,
 }) => {
-  const { t } = useTranslation();
-
   const deleteFavoriteItem = useCallback(
     id => {
       changeFavorite(id, favoriteBeer);
@@ -30,7 +28,7 @@ const FavoritesPage = ({
   if (isEmpty) {
     return (
       <section className='page favorites-page'>
-        <h1>{t('favorite')}</h1>
+        <h1>{getTranslatedText('favorite')}</h1>
       </section>
     );
   }
@@ -48,7 +46,7 @@ const FavoritesPage = ({
 
   return (
     <section className='page favorites-page'>
-      <h1>{t('favorite')}</h1>
+      <h1>{getTranslatedText('favorite')}</h1>
       <FavoriteBeerList
         favoriteBeers={selectFavoriteByPage(favoriteBeer, routingPage)}
         beers={allBeers}
