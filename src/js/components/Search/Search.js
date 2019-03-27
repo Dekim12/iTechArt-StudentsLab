@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Translation from '../Translation/Translation';
+import { Translation } from '../../appLogic/internalization/internalizationProvider';
 import { Button, ExtendedSearch } from '../index';
 import './search.scss';
 

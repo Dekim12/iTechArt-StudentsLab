@@ -9,7 +9,8 @@ import {
   Spinner,
 } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
-import { defineClassName, getTranslatedText } from '../../appLogic';
+import { defineClassName } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './beerPage.scss';
 
 const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
@@ -45,12 +46,8 @@ const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
               alcohol={beer.alcohol}
               bitterness={beer.bitterness}
               beerColor={beer.beerColor}
-              translate={getTranslatedText}
             />
-            <FoodPairing
-              food={beer.foodPairing}
-              translate={getTranslatedText}
-            />
+            <FoodPairing food={beer.foodPairing} />
           </div>
         </div>
         <img src={beer.url} alt={beer.name} />
@@ -59,16 +56,11 @@ const BeerPage = ({ isEmpty, isLoading, beer, changeFavorite, isFavorite }) => {
         <h2>{getTranslatedText('brewing')}</h2>
         <p>{beer.brewing}</p>
         <div className='ingredients-and-method'>
-          <Ingredients
-            ingredients={beer.ingredients}
-            water={beer.water}
-            translate={getTranslatedText}
-          />
+          <Ingredients ingredients={beer.ingredients} water={beer.water} />
           <Method
             fermentation={beer.method.fermentation}
             temp={beer.method.mash_temp}
             twist={beer.method.twist}
-            translate={getTranslatedText}
           />
         </div>
       </article>

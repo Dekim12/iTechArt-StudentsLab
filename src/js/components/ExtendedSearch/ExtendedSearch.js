@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import { Range } from '../index';
-import { getTranslatedText } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import { FILTER_PROPERTY } from '../../constants';
 import './extendedSearch.scss';
 

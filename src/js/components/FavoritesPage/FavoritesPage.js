@@ -6,8 +6,8 @@ import {
   defineCountPaginationPages,
   selectFavoriteByPage,
   redirectPaginationPage,
-  getTranslatedText,
 } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './favoritesPage.scss';
 
 const FavoritesPage = ({

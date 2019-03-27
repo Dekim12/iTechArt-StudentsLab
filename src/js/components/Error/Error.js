@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { defineClassName, getTranslatedText } from '../../appLogic';
+import { defineClassName } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import { ERROR_VISIBLE } from '../../constants';
 import smile from '../../../image/smile.png';
 import './error.scss';

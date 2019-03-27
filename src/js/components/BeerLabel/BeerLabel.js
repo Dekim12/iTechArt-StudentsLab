@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from '../index';
 import { FAVORITE_CHECKED } from '../../constants';
-import { defineClassName, getTranslatedText } from '../../appLogic';
+import { defineClassName } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './beerLabel.scss';
 
 const BeerLabel = ({ ownProps, isFavorite, changeFavorite }) => {

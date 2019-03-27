@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { defineClassName, getTranslatedText } from '../../appLogic/utils';
+import { defineClassName } from '../../appLogic/utils';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import * as constants from '../../constants/index';
 import './popUpMenu.scss';
 

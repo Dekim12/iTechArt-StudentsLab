@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './ingredients.scss';
 
-const Ingredients = ({ ingredients, water, translate }) => {
+const Ingredients = ({ ingredients, water }) => {
   const generateMaltItems = malt =>
     malt.map(item => (
       <span key={uuid()}>{`${item.name} - ${item.amount.value} ${
@@ -20,22 +21,22 @@ const Ingredients = ({ ingredients, water, translate }) => {
 
   return (
     <div className='ingredients-wrapper'>
-      <h2>{translate('ingredients')}</h2>
+      <h2>{getTranslatedText('ingredients')}</h2>
       <ul className='list ingredients'>
         <li>
-          <h4>{translate('water')}</h4>
+          <h4>{getTranslatedText('water')}</h4>
           <span>{`${water.value} ${water.unit}`}</span>
         </li>
         <li>
-          <h4>{translate('malt')}</h4>
+          <h4>{getTranslatedText('malt')}</h4>
           {generateMaltItems(ingredients.malt)}
         </li>
         <li>
-          <h4>{translate('hops')}</h4>
+          <h4>{getTranslatedText('hops')}</h4>
           {generateHopsItems(ingredients.hops)}
         </li>
         <li>
-          <h4>{translate('yeast')}</h4>
+          <h4>{getTranslatedText('yeast')}</h4>
           <span>{ingredients.yeast}</span>
         </li>
       </ul>
@@ -46,7 +47,6 @@ const Ingredients = ({ ingredients, water, translate }) => {
 Ingredients.propTypes = {
   ingredients: PropTypes.objectOf(PropTypes.any),
   water: PropTypes.objectOf(PropTypes.any),
-  translate: PropTypes.func.isRequired,
 };
 
 Ingredients.defaultProps = {

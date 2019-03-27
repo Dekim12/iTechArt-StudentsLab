@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from '../index';
-import { getTranslatedText } from '../../appLogic';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './favoriteBeerLabel.scss';
 
 const FavoriteBeerLabel = ({ beerInfo, deleteFavoriteItem }) => {

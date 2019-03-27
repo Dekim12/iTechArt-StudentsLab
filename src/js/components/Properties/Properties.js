@@ -1,11 +1,10 @@
 import React from 'react';
 import uuid from 'uuid/v1';
 import { BEER_PROPERTY } from '../../constants';
+import { getTranslatedText } from '../../appLogic/internalization/internalizationProvider';
 import './properties.scss';
 
 const Properties = props => {
-  const { translate } = props;
-
   const generateBeerProperty = arr =>
     arr.map(item => (
       <li key={uuid()}>
@@ -15,7 +14,7 @@ const Properties = props => {
         <div className='info-label'>
           <i className='fa fa-info-circle' aria-hidden='true' />
           <span className='tooltip'>
-            {translate(BEER_PROPERTY[item].abbreviation)}
+            {getTranslatedText(BEER_PROPERTY[item].abbreviation)}
           </span>
         </div>
         <span className='abbreviation'>{BEER_PROPERTY[item].abbreviation}</span>
@@ -24,7 +23,7 @@ const Properties = props => {
 
   return (
     <div className='prop-list-wrapper'>
-      <h2>{translate('properties')}</h2>
+      <h2>{getTranslatedText('properties')}</h2>
       <ul className='list beer-properties'>
         {generateBeerProperty(Object.keys(BEER_PROPERTY))}
       </ul>

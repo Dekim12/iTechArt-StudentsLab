@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
-import Translation from '../Translation/Translation';
+import { Translation } from '../../appLogic/internalization/internalizationProvider';
 import { Button } from '../index';
 import { defineClassName } from '../../appLogic';
 import { ACTIVE_LANGUAGE, LANGUAGES } from '../../constants';

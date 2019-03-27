@@ -1,7 +1,12 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, useTranslation } from 'react-i18next';
 
-const Translation = BaseComponent => {
+export const getTranslatedText = contentKey => {
+  const { t } = useTranslation();
+  return t(contentKey);
+};
+
+export const Translation = BaseComponent => {
   const TranslationHigherOrderComponent = ({ t, i18n, ...property }) => {
     const newTranslateFunction = key => i18n.changeLanguage(key);
 
@@ -16,5 +21,3 @@ const Translation = BaseComponent => {
 
   return withTranslation()(TranslationHigherOrderComponent);
 };
-
-export default Translation;
