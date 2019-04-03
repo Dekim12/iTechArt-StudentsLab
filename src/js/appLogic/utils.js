@@ -1,4 +1,4 @@
-export const defineClassName = (indicator, className) => {
+export const defineClassName = (indicator, className = '') => {
   if (indicator) {
     return className;
   }
